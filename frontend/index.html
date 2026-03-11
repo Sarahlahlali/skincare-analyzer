@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Skincare Ingredient Analyzer</title>
+</head>
+
+<body>
+
+<h1>Skincare Ingredient Analyzer</h1>
+
+<p>Paste the ingredients from a skincare product below:</p>
+
+<textarea id="ingredients" rows="8" cols="60"></textarea>
+
+<br><br>
+
+<button onclick="analyzeIngredients()">Analyze</button>
+
+<p id="result"></p>
+
+<script>
+function analyzeIngredients() {
+
+  let text = document.getElementById("ingredients").value.toLowerCase();
+
+  let warnings = [];
+
+  if(text.includes("fragrance")){
+    warnings.push("⚠ Contains fragrance (possible irritant)");
+  }
+
+  if(text.includes("alcohol")){
+    warnings.push("⚠ Contains alcohol (may dry skin)");
+  }
+
+  if(text.includes("niacinamide")){
+    warnings.push("✔ Contains niacinamide (good for oil control)");
+  }
+
+  document.getElementById("result").innerHTML = warnings.join("<br>");
+
+}
+</script>
+
+</body>
+</html>
