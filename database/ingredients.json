@@ -1,0 +1,26 @@
+{
+  "niacinamide": {
+    "category": "active",
+    "benefits": ["oil control", "acne", "redness"],
+    "comedogenic": 1,
+    "irritation": "low"
+  },
+  "glycerin": {
+    "category": "humectant",
+    "benefits": ["hydration"],
+    "comedogenic": 0,
+    "irritation": "none"
+  },
+  "salicylic acid": {
+    "category": "exfoliant",
+    "benefits": ["acne", "oil control"],
+    "comedogenic": 0,
+    "irritation": "medium"
+  },
+  "fragrance": {
+    "category": "irritant",
+    "benefits": [],
+    "comedogenic": 0,
+    "irritation": "high"
+  }
+}
