@@ -1,46 +1,57 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Skincare Ingredient Analyzer</title>
-</head>
-
-<body>
-
-<h1>Skincare Ingredient Analyzer</h1>
-
-<p>Paste the ingredients from a skincare product below:</p>
-
-<textarea id="ingredients" rows="8" cols="60"></textarea>
-
-<br><br>
-
-<button onclick="analyzeIngredients()">Analyze</button>
-
-<p id="result"></p>
-
 <script>
+
+const ingredientDatabase = {
+  "niacinamide": {benefit:"oil control", warning:false},
+  "glycerin": {benefit:"hydration", warning:false},
+  "salicylic acid": {benefit:"acne treatment", warning:false},
+  "fragrance": {benefit:"", warning:true},
+  "parfum": {benefit:"", warning:true},
+  "alcohol denat": {benefit:"", warning:true}
+};
+
 function analyzeIngredients() {
 
   let text = document.getElementById("ingredients").value.toLowerCase();
 
+  // Remove parentheses like (Aqua)
+  text = text.replace(/\(.*?\)/g, "");
+
+  // Split ingredients by comma
+  let ingredients = text.split(",");
+
+  let good = [];
   let warnings = [];
 
-  if(text.includes("fragrance")){
-    warnings.push("⚠ Contains fragrance (possible irritant)");
+  ingredients.forEach(i => {
+
+    let ingredient = i.trim();
+
+    if(ingredientDatabase[ingredient]){
+
+      let data = ingredientDatabase[ingredient];
+
+      if(data.warning){
+        warnings.push("⚠ " + ingredient);
+      } else {
+        good.push("✔ " + ingredient + " – " + data.benefit);
+      }
+
+    }
+
+  });
+
+  let resultHTML = "";
+
+  if(good.length > 0){
+    resultHTML += "<h3>Good Ingredients</h3>" + good.join("<br>");
   }
 
-  if(text.includes("alcohol")){
-    warnings.push("⚠ Contains alcohol (may dry skin)");
+  if(warnings.length > 0){
+    resultHTML += "<h3>Warnings</h3>" + warnings.join("<br>");
   }
 
-  if(text.includes("niacinamide")){
-    warnings.push("✔ Contains niacinamide (good for oil control)");
-  }
-
-  document.getElementById("result").innerHTML = warnings.join("<br>");
+  document.getElementById("result").innerHTML = resultHTML;
 
 }
-</script>
 
-</body>
-</html>
+</script>
