@@ -1,61 +1,84 @@
-<script>
-let ingredientDatabase = {};
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Skincare Analyzer</title>
+</head>
+<body>
 
-async function loadIngredientDatabase() {
-  try {
-    const response = await fetch("./database/ingredients.json");
-    const data = await response.json();
+  <h1>Skincare Ingredient Analyzer</h1>
 
-    ingredientDatabase = data;
-    console.log("Ingredient database loaded:", ingredientDatabase);
+  <p>Paste your product ingredients below:</p>
 
-  } catch (error) {
-    console.error("Could not load ingredient database:", error);
-  }
-}
+  <textarea id="ingredients" rows="8" cols="50" placeholder="Water, Niacinamide, Fragrance, Glycerin"></textarea>
 
-function analyzeIngredients() {
-  let text = document.getElementById("ingredients").value.toLowerCase();
+  <br><br>
 
-  text = text.replace(/\(.*?\)/g, "");
-  let ingredients = text.split(",");
+  <button onclick="analyzeIngredients()">Analyze Ingredients</button>
 
-  let good = [];
-  let warnings = [];
-  let unknown = [];
+  <div id="result"></div>
 
-  ingredients.forEach(i => {
-    let ingredient = i.trim();
+  <script>
+  let ingredientDatabase = {};
 
-    if (ingredientDatabase[ingredient]) {
-      let data = ingredientDatabase[ingredient];
+  async function loadIngredientDatabase() {
+    try {
+      const response = await fetch("./database/ingredients.json");
+      const data = await response.json();
 
-      if (data.warning === true || data.irritation_risk === "high") {
-        warnings.push(`⚠ ${ingredient} — may irritate sensitive skin`);
-      } else {
-        good.push(`✔ ${ingredient} — ${data.benefits ? data.benefits.join(", ") : "generally skin-supportive"}`);
-      }
-    } else if (ingredient.length > 0) {
-      unknown.push(`• ${ingredient}`);
+      ingredientDatabase = data;
+      console.log("Ingredient database loaded:", ingredientDatabase);
+
+    } catch (error) {
+      console.error("Could not load ingredient database:", error);
     }
-  });
-
-  let resultHTML = "";
-
-  if (good.length > 0) {
-    resultHTML += "<h3>Good Ingredients</h3>" + good.join("<br>");
   }
 
-  if (warnings.length > 0) {
-    resultHTML += "<h3>Warnings</h3>" + warnings.join("<br>");
+  function analyzeIngredients() {
+    let text = document.getElementById("ingredients").value.toLowerCase();
+
+    text = text.replace(/\(.*?\)/g, "");
+    let ingredients = text.split(",");
+
+    let good = [];
+    let warnings = [];
+    let unknown = [];
+
+    ingredients.forEach(i => {
+      let ingredient = i.trim();
+
+      if (ingredientDatabase[ingredient]) {
+        let data = ingredientDatabase[ingredient];
+
+        if (data.warning === true || data.irritation_risk === "high") {
+          warnings.push(`⚠ ${ingredient} — may irritate sensitive skin`);
+        } else {
+          good.push(`✔ ${ingredient} — ${data.benefits ? data.benefits.join(", ") : "generally skin-supportive"}`);
+        }
+      } else if (ingredient.length > 0) {
+        unknown.push(`• ${ingredient}`);
+      }
+    });
+
+    let resultHTML = "";
+
+    if (good.length > 0) {
+      resultHTML += "<h3>Good Ingredients</h3>" + good.join("<br>");
+    }
+
+    if (warnings.length > 0) {
+      resultHTML += "<h3>Warnings</h3>" + warnings.join("<br>");
+    }
+
+    if (unknown.length > 0) {
+      resultHTML += "<h3>Not Found in Database Yet</h3>" + unknown.join("<br>");
+    }
+
+    document.getElementById("result").innerHTML =
+      resultHTML || "<p>Please paste an ingredient list first.</p>";
   }
 
-  if (unknown.length > 0) {
-    resultHTML += "<h3>Not Found in Database Yet</h3>" + unknown.join("<br>");
-  }
+  loadIngredientDatabase();
+  </script>
 
-  document.getElementById("result").innerHTML = resultHTML || "<p>Please paste an ingredient list first.</p>";
-}
-
-loadIngredientDatabase();
-</script>
+</body>
+</html>
