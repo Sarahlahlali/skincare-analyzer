@@ -6,11 +6,9 @@ async function loadIngredientDatabase() {
     const response = await fetch("./database/ingredients.json");
     const data = await response.json();
 
-    data.forEach(item => {
-      ingredientDatabase[item.name.toLowerCase()] = item;
-    });
-
+    ingredientDatabase = data;
     console.log("Ingredient database loaded:", ingredientDatabase);
+
   } catch (error) {
     console.error("Could not load ingredient database:", error);
   }
@@ -35,7 +33,7 @@ function analyzeIngredients() {
       if (data.warning === true || data.irritation_risk === "high") {
         warnings.push(`⚠ ${ingredient} — may irritate sensitive skin`);
       } else {
-        good.push(`✔ ${ingredient} — ${data.benefit || "generally skin-supportive"}`);
+        good.push(`✔ ${ingredient} — ${data.benefits ? data.benefits.join(", ") : "generally skin-supportive"}`);
       }
     } else if (ingredient.length > 0) {
       unknown.push(`• ${ingredient}`);
