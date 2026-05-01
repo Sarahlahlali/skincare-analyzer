@@ -1,57 +1,63 @@
 <script>
+let ingredientDatabase = {};
 
-const ingredientDatabase = {
-  "niacinamide": {benefit:"oil control", warning:false},
-  "glycerin": {benefit:"hydration", warning:false},
-  "salicylic acid": {benefit:"acne treatment", warning:false},
-  "fragrance": {benefit:"", warning:true},
-  "parfum": {benefit:"", warning:true},
-  "alcohol denat": {benefit:"", warning:true}
-};
+async function loadIngredientDatabase() {
+  try {
+    const response = await fetch("./database/ingredients.json");
+    const data = await response.json();
+
+    data.forEach(item => {
+      ingredientDatabase[item.name.toLowerCase()] = item;
+    });
+
+    console.log("Ingredient database loaded:", ingredientDatabase);
+  } catch (error) {
+    console.error("Could not load ingredient database:", error);
+  }
+}
 
 function analyzeIngredients() {
-
   let text = document.getElementById("ingredients").value.toLowerCase();
 
-  // Remove parentheses like (Aqua)
   text = text.replace(/\(.*?\)/g, "");
-
-  // Split ingredients by comma
   let ingredients = text.split(",");
 
   let good = [];
   let warnings = [];
+  let unknown = [];
 
   ingredients.forEach(i => {
-
     let ingredient = i.trim();
 
-    if(ingredientDatabase[ingredient]){
-
+    if (ingredientDatabase[ingredient]) {
       let data = ingredientDatabase[ingredient];
 
-      if(data.warning){
-        warnings.push("⚠ " + ingredient);
+      if (data.warning === true || data.irritation_risk === "high") {
+        warnings.push(`⚠ ${ingredient} — may irritate sensitive skin`);
       } else {
-        good.push("✔ " + ingredient + " – " + data.benefit);
+        good.push(`✔ ${ingredient} — ${data.benefit || "generally skin-supportive"}`);
       }
-
+    } else if (ingredient.length > 0) {
+      unknown.push(`• ${ingredient}`);
     }
-
   });
 
   let resultHTML = "";
 
-  if(good.length > 0){
+  if (good.length > 0) {
     resultHTML += "<h3>Good Ingredients</h3>" + good.join("<br>");
   }
 
-  if(warnings.length > 0){
+  if (warnings.length > 0) {
     resultHTML += "<h3>Warnings</h3>" + warnings.join("<br>");
   }
 
-  document.getElementById("result").innerHTML = resultHTML;
+  if (unknown.length > 0) {
+    resultHTML += "<h3>Not Found in Database Yet</h3>" + unknown.join("<br>");
+  }
 
+  document.getElementById("result").innerHTML = resultHTML || "<p>Please paste an ingredient list first.</p>";
 }
 
+loadIngredientDatabase();
 </script>
