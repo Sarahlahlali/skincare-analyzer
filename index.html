@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Skincare Analyzer</title>
+  <title>Skincare Ingredient Analyzer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -34,6 +34,9 @@
     .hero p {
       font-size: 18px;
       color: #6b5f5b;
+      max-width: 720px;
+      margin: 0 auto;
+      line-height: 1.6;
     }
 
     .analyzer-card {
@@ -44,6 +47,12 @@
       margin-bottom: 30px;
     }
 
+    label {
+      display: block;
+      margin-top: 18px;
+      font-weight: bold;
+    }
+
     textarea, select {
       width: 100%;
       padding: 16px;
@@ -52,6 +61,7 @@
       font-size: 16px;
       margin-top: 10px;
       box-sizing: border-box;
+      font-family: Arial, sans-serif;
     }
 
     button {
@@ -84,10 +94,16 @@
       box-shadow: 0 8px 24px rgba(0,0,0,0.06);
     }
 
+    .score-card h3,
+    .result-section h3 {
+      margin-top: 0;
+    }
+
     .score-number {
       font-size: 36px;
       font-weight: bold;
       margin: 10px 0;
+      text-transform: capitalize;
     }
 
     .low { color: #2f8f5b; }
@@ -108,6 +124,19 @@
       border-radius: 999px;
       margin: 5px;
       font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .warning-tag {
+      background: #ffe2dc;
+    }
+
+    .good-tag {
+      background: #e8f5ee;
+    }
+
+    .unknown-tag {
+      background: #f1f1f1;
     }
 
     .product-grid {
@@ -124,6 +153,7 @@
     .small {
       color: #6b5f5b;
       font-size: 14px;
+      line-height: 1.5;
     }
 
     .disclaimer {
@@ -131,6 +161,7 @@
       font-size: 13px;
       color: #777;
       text-align: center;
+      line-height: 1.5;
     }
   </style>
 </head>
@@ -141,13 +172,16 @@
 
     <section class="hero">
       <h1>Skincare Ingredient Analyzer</h1>
-      <p>Paste your product ingredients and get a simple skin-friendly breakdown, acne risk score, irritation flags, and product recommendations.</p>
+      <p>
+        Paste your product ingredients and get a simple skin-friendly breakdown,
+        acne risk score, irritation flags, and product recommendations.
+      </p>
     </section>
 
     <section class="analyzer-card">
       <h2>Analyze Your Product</h2>
 
-      <label>Your skin type</label>
+      <label for="skinType">Your skin type</label>
       <select id="skinType">
         <option value="normal">Normal</option>
         <option value="oily">Oily / Acne-Prone</option>
@@ -155,8 +189,12 @@
         <option value="sensitive">Sensitive</option>
       </select>
 
-      <label>Paste ingredient list</label>
-      <textarea id="ingredients" rows="9" placeholder="Example: Water, Niacinamide, Glycerin, Fragrance, Salicylic Acid"></textarea>
+      <label for="ingredients">Paste ingredient list</label>
+      <textarea
+        id="ingredients"
+        rows="9"
+        placeholder="Example: Water, Niacinamide, Glycerin, Fragrance, Salicylic Acid"
+      ></textarea>
 
       <button onclick="analyzeIngredients()">Analyze Ingredients</button>
     </section>
@@ -165,6 +203,7 @@
 
     <p class="disclaimer">
       This tool is for educational skincare guidance only and is not medical advice.
+      Always patch test new products and consult a dermatologist for persistent or serious skin concerns.
     </p>
 
   </div>
@@ -174,24 +213,76 @@
 
     const productRecommendations = {
       oily: [
-        { name: "Gel Cleanser", reason: "Best for oily or acne-prone skin because it feels lightweight and non-greasy." },
-        { name: "Niacinamide Serum", reason: "Helps with oil control, redness, and uneven tone." },
-        { name: "Oil-Free Moisturizer", reason: "Hydrates without feeling heavy or pore-clogging." }
+        {
+          name: "Gel Cleanser",
+          reason: "Best for oily or acne-prone skin because it feels lightweight and non-greasy."
+        },
+        {
+          name: "Niacinamide Serum",
+          reason: "Helps with oil control, redness, and uneven tone."
+        },
+        {
+          name: "Oil-Free Moisturizer",
+          reason: "Hydrates without feeling heavy or pore-clogging."
+        },
+        {
+          name: "BHA Exfoliant",
+          reason: "Salicylic acid can help with clogged pores and excess oil when used carefully."
+        }
       ],
       dry: [
-        { name: "Cream Cleanser", reason: "Gentle and less stripping for dry skin." },
-        { name: "Hydrating Serum", reason: "Look for glycerin, hyaluronic acid, panthenol, and urea." },
-        { name: "Barrier Cream", reason: "Supports dry skin with ceramides and occlusives." }
+        {
+          name: "Cream Cleanser",
+          reason: "Gentle and less stripping for dry skin."
+        },
+        {
+          name: "Hydrating Serum",
+          reason: "Look for glycerin, hyaluronic acid, panthenol, and urea."
+        },
+        {
+          name: "Barrier Cream",
+          reason: "Supports dry skin with ceramides, cholesterol, and occlusives."
+        },
+        {
+          name: "Rich Moisturizer",
+          reason: "Helpful when skin feels tight, flaky, or uncomfortable."
+        }
       ],
       sensitive: [
-        { name: "Fragrance-Free Cleanser", reason: "Reduces risk of irritation." },
-        { name: "Barrier Repair Moisturizer", reason: "Look for ceramides, panthenol, allantoin, and centella." },
-        { name: "Mineral Sunscreen", reason: "Often better tolerated by sensitive skin." }
+        {
+          name: "Fragrance-Free Cleanser",
+          reason: "Reduces the chance of fragrance-related irritation."
+        },
+        {
+          name: "Barrier Repair Moisturizer",
+          reason: "Look for ceramides, panthenol, allantoin, centella, and colloidal oatmeal."
+        },
+        {
+          name: "Mineral Sunscreen",
+          reason: "Zinc oxide and titanium dioxide are often better tolerated by sensitive skin."
+        },
+        {
+          name: "Calming Serum",
+          reason: "Centella, beta-glucan, licorice root, and panthenol can support redness-prone skin."
+        }
       ],
       normal: [
-        { name: "Gentle Daily Cleanser", reason: "Simple cleanser that does not strip the skin." },
-        { name: "Antioxidant Serum", reason: "Vitamin C or green tea can support glow and protection." },
-        { name: "Daily SPF", reason: "The most important product for long-term skin health." }
+        {
+          name: "Gentle Daily Cleanser",
+          reason: "Simple cleanser that does not strip the skin."
+        },
+        {
+          name: "Antioxidant Serum",
+          reason: "Vitamin C, green tea, or ferulic acid can support glow and protection."
+        },
+        {
+          name: "Daily Moisturizer",
+          reason: "Helps maintain hydration and skin barrier comfort."
+        },
+        {
+          name: "Daily SPF",
+          reason: "The most important product for long-term skin health."
+        }
       ]
     };
 
@@ -199,19 +290,48 @@
       try {
         const response = await fetch("./database/ingredients.json");
         const data = await response.json();
+
         ingredientDatabase = data;
         console.log("Ingredient database loaded:", ingredientDatabase);
+
       } catch (error) {
         console.error("Could not load ingredient database:", error);
       }
     }
 
+    function cleanIngredientName(value) {
+      return value
+        .toLowerCase()
+        .trim()
+        .replace(/\(.*?\)/g, "")
+        .replace(/\s+/g, " ")
+        .replace(/[.;:]$/g, "")
+        .trim();
+    }
+
     function analyzeIngredients() {
-      let text = document.getElementById("ingredients").value.toLowerCase();
-      let skinType = document.getElementById("skinType").value;
+      const inputBox = document.getElementById("ingredients");
+      const resultBox = document.getElementById("result");
+      const skinType = document.getElementById("skinType").value;
+
+      let text = inputBox.value.toLowerCase();
+
+      if (!text.trim()) {
+        resultBox.innerHTML = `
+          <div class="result-section">
+            <h3>No ingredients entered yet</h3>
+            <p class="small">Paste an ingredient list first, then click Analyze Ingredients.</p>
+          </div>
+        `;
+        return;
+      }
 
       text = text.replace(/\(.*?\)/g, "");
-      let ingredients = text.split(",");
+
+      let ingredients = text
+        .split(",")
+        .map(cleanIngredientName)
+        .filter(item => item.length > 0);
 
       let good = [];
       let warnings = [];
@@ -219,36 +339,53 @@
 
       let acneScore = 0;
       let irritationScore = 0;
+      let matchedCount = 0;
 
-      ingredients.forEach(i => {
-        let ingredient = i.trim();
-
+      ingredients.forEach(ingredient => {
         if (ingredientDatabase[ingredient]) {
+          matchedCount++;
+
           let data = ingredientDatabase[ingredient];
 
-          let comedogenic = data.comedogenic_rating || 0;
+          let comedogenic = Number(data.comedogenic_rating || 0);
           let irritation = data.irritation_risk || "none";
+          let benefits = data.benefits ? data.benefits.join(", ") : "generally skin-supportive";
+          let category = data.category || "ingredient";
 
           acneScore += comedogenic;
 
+          if (irritation === "low") irritationScore += 1;
           if (irritation === "medium") irritationScore += 2;
           if (irritation === "high") irritationScore += 4;
 
-          if (comedogenic >= 3 || irritation === "high") {
-            warnings.push(`⚠ ${ingredient} — ${data.category}. Irritation risk: ${irritation}. Comedogenic rating: ${comedogenic}`);
+          const isWarning =
+            comedogenic >= 3 ||
+            irritation === "high" ||
+            (skinType === "sensitive" && irritation === "medium") ||
+            (skinType === "oily" && comedogenic >= 2);
+
+          if (isWarning) {
+            warnings.push(
+              `⚠ ${ingredient} — ${category}. Irritation risk: ${irritation}. Pore-clogging rating: ${comedogenic}/5.`
+            );
           } else {
-            good.push(`✔ ${ingredient} — ${data.benefits ? data.benefits.join(", ") : "generally skin-supportive"}`);
+            good.push(
+              `✔ ${ingredient} — ${benefits}`
+            );
           }
 
-        } else if (ingredient.length > 0) {
+        } else {
           unknown.push(`• ${ingredient}`);
         }
       });
 
       let acneLevel = getLevel(acneScore);
       let irritationLevel = getLevel(irritationScore);
+      let productMatchLevel = getProductMatchLevel(warnings.length, unknown.length, matchedCount);
 
       let products = productRecommendations[skinType];
+
+      let summaryMessage = getSummaryMessage(acneLevel.label, irritationLevel.label, skinType);
 
       let resultHTML = `
         <div class="score-grid">
@@ -256,18 +393,20 @@
             <h3>Acne / Pore-Clogging Score</h3>
             <div class="score-number ${acneLevel.className}">${acneScore}</div>
             <p>${acneLevel.label}</p>
+            <p class="small">Higher scores usually mean more ingredients that may feel heavy or clog-prone for acne-prone skin.</p>
           </div>
 
           <div class="score-card">
             <h3>Irritation Score</h3>
             <div class="score-number ${irritationLevel.className}">${irritationScore}</div>
             <p>${irritationLevel.label}</p>
+            <p class="small">Higher scores may matter more if your skin is sensitive, reactive, or barrier-damaged.</p>
           </div>
 
           <div class="score-card">
             <h3>Skin Type Match</h3>
-            <div class="score-number">${skinType}</div>
-            <p>Recommendations are customized for your selected skin type.</p>
+            <div class="score-number ${productMatchLevel.className}">${productMatchLevel.label}</div>
+            <p class="small">${summaryMessage}</p>
           </div>
         </div>
 
@@ -278,7 +417,7 @@
         resultHTML += `
           <div class="result-section">
             <h3>Good Ingredients</h3>
-            ${good.map(item => `<div class="tag">${item}</div>`).join("")}
+            ${good.map(item => `<div class="tag good-tag">${item}</div>`).join("")}
           </div>
         `;
       }
@@ -287,7 +426,8 @@
         resultHTML += `
           <div class="result-section">
             <h3>Ingredients to Watch</h3>
-            ${warnings.map(item => `<div class="tag">${item}</div>`).join("")}
+            <p class="small">These are not automatically bad, but they may be worth noticing depending on your skin type and product concentration.</p>
+            ${warnings.map(item => `<div class="tag warning-tag">${item}</div>`).join("")}
           </div>
         `;
       }
@@ -297,7 +437,7 @@
           <div class="result-section">
             <h3>Not Found in Database Yet</h3>
             <p class="small">These ingredients are not bad automatically. They just are not in your database yet.</p>
-            ${unknown.map(item => `<div class="tag">${item}</div>`).join("")}
+            ${unknown.map(item => `<div class="tag unknown-tag">${item}</div>`).join("")}
           </div>
         `;
       }
@@ -317,7 +457,7 @@
         </div>
       `;
 
-      document.getElementById("result").innerHTML = resultHTML;
+      resultBox.innerHTML = resultHTML;
     }
 
     function getLevel(score) {
@@ -328,6 +468,38 @@
       } else {
         return { label: "High risk", className: "high" };
       }
+    }
+
+    function getProductMatchLevel(warningsCount, unknownCount, matchedCount) {
+      if (matchedCount === 0) {
+        return { label: "Unknown", className: "medium" };
+      }
+
+      if (warningsCount === 0) {
+        return { label: "Strong", className: "low" };
+      }
+
+      if (warningsCount <= 2) {
+        return { label: "Okay", className: "medium" };
+      }
+
+      return { label: "Caution", className: "high" };
+    }
+
+    function getSummaryMessage(acneLabel, irritationLabel, skinType) {
+      if (skinType === "oily") {
+        return "For oily or acne-prone skin, pay close attention to heavier oils, butters, and high pore-clogging ratings.";
+      }
+
+      if (skinType === "sensitive") {
+        return "For sensitive skin, watch fragrance, essential oils, strong exfoliants, retinoids, and drying alcohols.";
+      }
+
+      if (skinType === "dry") {
+        return "For dry skin, look for humectants, ceramides, emollients, and barrier-supporting ingredients.";
+      }
+
+      return "This product has been reviewed for common acne, irritation, and barrier-support signals.";
     }
 
     loadIngredientDatabase();
