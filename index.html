@@ -591,6 +591,48 @@
     @media (max-width:850px) {.how-section{padding:55px 24px}.how-grid{grid-template-columns:1fr}.top-nav{padding:24px}.hero-copy h1{letter-spacing:-1.5px}.analyzer-card{padding:25px}.sub-nav{gap:24px}.hero{min-height:unset}}
     @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pill-btn{transition:none}}
 
+
+.hero {background:radial-gradient(circle at 30% 40%,#e2eedb,transparent 42%),linear-gradient(130deg,#f9f8f2,#edf2e8);min-height:595px;}
+.hero-copy h1 em{color:#71947a;font-weight:400;}
+.hero-card{border-radius:25px;background:linear-gradient(145deg,#c9dfcb,#efd8de);padding:17px;width:100%;max-width:390px;}
+.hero-card-inner{background:#f7faf6;border-radius:16px;padding:22px;min-height:328px;display:block;}
+.formula-demo{width:100%;text-align:left;}
+.demo-head{font:700 11px 'Space Mono',monospace;color:#496451;display:flex;justify-content:space-between;}
+.demo-ring{width:182px;height:182px;border-radius:50%;border:18px solid #cae1cd;border-top-color:#6fa692;border-left-color:#82b99a;margin:16px auto;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 25px #bbcfbd75;}
+.demo-ring-center{text-align:center;display:flex;flex-direction:column;line-height:1.15;}
+.demo-ring-center span{font-size:27px;color:#a47b9b;}
+.demo-ring-center strong{font:700 28px Georgia,serif;}
+.demo-ring-center small{font:700 10px 'Space Mono',monospace;letter-spacing:2px;}
+.demo-labels{display:grid;gap:6px;}
+.demo-labels span{border:1px solid #dae9d9;background:#eaf3e9;border-radius:10px;padding:7px 11px;font:11px 'Space Mono',monospace;color:#425f4a;}
+#productName {width:100%;padding:16px;border:1px solid #cdd4cc;border-radius:12px;background:#fcfbf8;font:15px 'DM Sans',sans-serif;margin-top:9px;}
+#productName:focus-visible{outline:3px solid #a0bba9;}
+.formula-report{border-radius:24px;background:#29483b;color:white;padding:30px;margin-bottom:23px;overflow:hidden;}
+.formula-report h2{font:700 clamp(27px,4vw,43px) Georgia,serif;margin:9px 0;}
+.formula-report p{color:#e0ebe2;font-size:13px;line-height:1.7;}
+.formula-report .eyebrow{color:#b8d9c1;}
+.progress-track{height:12px;border-radius:99px;background:#4b6957;margin-top:23px;overflow:hidden;}
+.progress-fill{height:100%;background:linear-gradient(90deg,#b5dcae,#f2ddb7);border-radius:99px;}
+.report-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 24px;}
+.report-actions button{width:auto;margin:0;padding:13px 18px;font-size:11px;letter-spacing:.4px;}
+.report-actions span{font-size:12px;color:#4b6656;}
+.ingredient-explorer{background:#fff;border-radius:20px;border:1px solid #e0e8de;padding:28px;margin-bottom:24px;}
+.ingredient-explorer h3{font:700 29px Georgia,serif;margin:0 0 10px;}
+.explorer-controls{display:flex;gap:10px;margin:18px 0;}
+.explorer-controls input,.explorer-controls select{border:1px solid #ccd8ce;border-radius:11px;background:#fafcf9;padding:12px;font:14px 'DM Sans',sans-serif;}
+.explorer-controls input{flex:2;min-width:0;}
+.explorer-controls select{flex:1;min-width:0;}
+.ingredient-list{display:grid;gap:10px;}
+.ingredient-row{border:1px solid #e0e8e0;background:#fcfdfa;border-radius:13px;padding:15px;}
+.ingredient-row summary{cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;list-style:none;font-weight:700;}
+.ingredient-row summary::-webkit-details-marker{display:none;}
+.ingredient-row p{font-size:13px;line-height:1.65;color:#57685c;margin-bottom:0;}
+.ingredient-state{font:700 10px 'Space Mono',monospace;border-radius:99px;padding:6px 9px;white-space:nowrap;background:#e6f1e5;color:#42644b;}
+.ingredient-state.watch{background:#ffe8df;color:#944e3d;}
+.ingredient-state.unknown{background:#efede7;color:#6c6a61;}
+[hidden]{display:none!important;}
+@media(max-width:850px){.formula-report,.ingredient-explorer{padding:21px}.explorer-controls{flex-direction:column}.explorer-controls input,.explorer-controls select{width:100%}}
+
   </style>
 </head>
 
@@ -617,17 +659,12 @@
 
       <div class="hero-card">
         <div class="hero-card-inner">
-          <div class="mini-product-stack">
-            <div class="mini-product"></div>
-            <div class="mini-product"></div>
-            <div class="mini-product"></div>
-            <div class="mini-product"></div>
-          </div>
+          <div class="formula-demo" aria-label="Formula analysis illustration"><div class="demo-head">✳ FORMULA INTELLIGENCE <span>↗</span></div><div class="demo-ring"><div class="demo-ring-center"><span>✦</span><strong>SKIN</strong><small>DECODED</small></div></div><div class="demo-labels"><span>✓ Ingredient insights</span><span>✓ Skin type aware</span><span>✓ Clear explanations</span></div></div>
         </div>
       </div>
 
       <div class="hero-copy">
-        <div class="eyebrow">THE INGREDIENT EDIT • FREE ANALYZER</div><h1>good skin starts with understanding.</h1>
+        <div class="eyebrow">✳ THE PERSONAL FORMULA LAB</div><h1>meet your skin’s new <em>superpower.</em></h1>
         <p>
           Decode your skincare label in seconds. Understand what ingredients do, which deserve a closer look, and how they fit your skin type.
         </p>
@@ -656,7 +693,7 @@
           <div class="eyebrow">LET’S BREAK IT DOWN</div><h2>Analyze your product</h2>
           <p>Copy ingredients from a product page, brand website, Sephora, Ulta, or the product box.</p>
 
-          <label for="skinType">Your skin type</label>
+          <label for="productName">Product name (optional)</label><input id="productName" maxlength="80" type="text" placeholder="e.g. My everyday moisturizer" autocomplete="off"><label for="skinType">Your skin type</label>
           <select id="skinType">
             <option value="normal">Normal</option>
             <option value="oily">Oily / Acne-Prone</option>
@@ -805,11 +842,11 @@
     const results=document.getElementById("result");
     const example="Water, Glycerin, Niacinamide, Panthenol, Sodium Hyaluronate, Cetearyl Alcohol, Fragrance, Phenoxyethanol";
     document.getElementById("exampleBtn").addEventListener("click",()=>{
-      ingredientInput.value=example;document.getElementById("skinType").value="sensitive";
+      ingredientInput.value=example;document.getElementById("productName").value="Sample barrier serum";document.getElementById("skinType").value="sensitive";
       results.innerHTML="";ingredientInput.focus();updateInputStatus();
     });
     document.getElementById("clearBtn").addEventListener("click",()=>{
-      ingredientInput.value="";results.innerHTML="";ingredientInput.focus();updateInputStatus();
+      ingredientInput.value="";document.getElementById("productName").value="";results.innerHTML="";ingredientInput.focus();updateInputStatus();
     });
     ingredientInput.addEventListener("input",updateInputStatus);
     function updateInputStatus(){
