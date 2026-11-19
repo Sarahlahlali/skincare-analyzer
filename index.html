@@ -925,6 +925,110 @@
         </div>`;
       results.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
     }
+
+    // Advanced dashboard layer: keeps the original ingredient analysis intact.
+    const basicAnalyze=analyzeIngredients;
+    analyzeIngredients=function(){
+      basicAnalyze();
+      if(!databaseLoaded)return;
+      const names=parseIngredients(ingredientInput.value);
+      if(!names.length)return;
+      const skinType=document.getElementById("skinType").value;
+      const productName=document.getElementById("productName").value.trim()||"Your formula";
+      const records=names.map(name=>{
+        const data=ingredientDatabase[name];
+        if(!data)return {name,state:"unknown",data:null};
+        const irritation=String(data.irritation_risk||"none").toLowerCase();
+        const clog=Number(data.comedogenic_rating)||0;
+        const watch=irritation==="high"||(skinType==="sensitive"&&irritation==="medium")||(skinType==="oily"&&clog>=3);
+        return {name,state:watch?"watch":"recognized",data};
+      });
+      const known=records.filter(r=>r.data).length;
+      const coverage=Math.round(100*known/records.length);
+      const flags=records.filter(r=>r.state==="watch").map(r=>r.name);
+      const make=(tag,className,textValue)=>{
+        const node=document.createElement(tag);
+        if(className)node.className=className;
+        if(textValue!==undefined)node.textContent=textValue;
+        return node;
+      };
+      const report=make("section","formula-report");
+      report.append(make("div","eyebrow","✳ YOUR PERSONAL FORMULA REPORT"));
+      report.append(make("h2","",productName));
+      report.append(make("p","",records.length+" unique ingredients · "+pretty(skinType)+" skin · "+known+" recognized · "+flags.length+" review flags"));
+      const track=make("div","progress-track");
+      track.setAttribute("role","progressbar");
+      track.setAttribute("aria-label","Database coverage");
+      track.setAttribute("aria-valuenow",String(coverage));
+      track.setAttribute("aria-valuemin","0");
+      track.setAttribute("aria-valuemax","100");
+      const fill=make("div","progress-fill");
+      fill.style.width=coverage+"%";
+      track.append(fill);report.append(track);
+      report.append(make("p","","Database coverage "+coverage+"% · Unknown ingredients are not automatically unsafe."));
+      const actions=make("div","report-actions");
+      const copy=make("button","","⧉ Copy analysis summary");copy.type="button";
+      const again=make("button","","↺ Analyze another");again.type="button";
+      const copyStatus=make("span","","");
+      actions.append(copy,again,copyStatus);
+      copy.addEventListener("click",async()=>{
+        const summary=[
+          productName+" — Ingredient Analysis",
+          "Skin type: "+skinType,
+          "Ingredient database coverage: "+known+"/"+records.length+" ("+coverage+"%)",
+          "Review flags: "+(flags.join(", ")||"None among recognized ingredients"),
+          "Not recognized: "+(records.filter(r=>!r.data).map(r=>r.name).join(", ")||"None"),
+          "Educational ingredient-level signals only; not medical advice or a validated product safety score."
+        ].join("\n");
+        try{await navigator.clipboard.writeText(summary);copyStatus.textContent="Copied ✓";}
+        catch(e){copyStatus.textContent="Copy unavailable in this browser.";}
+      });
+      again.addEventListener("click",()=>document.getElementById("analyzer").scrollIntoView({behavior:"smooth"}));
+      const explorer=make("section","ingredient-explorer");
+      explorer.append(make("h3","","Explore every ingredient"));
+      explorer.append(make("p","small","Search, filter, and open each ingredient to understand its role. Information comes from your ingredient database and does not predict individual skin reactions."));
+      const controls=make("div","explorer-controls");
+      const search=make("input");search.type="search";search.placeholder="Search ingredients…";search.setAttribute("aria-label","Search analyzed ingredients");
+      const select=make("select");select.setAttribute("aria-label","Filter analyzed ingredients");
+      [["all","All ingredients"],["recognized","Recognized"],["watch","Review flags"],["unknown","Not recognized"]].forEach(([value,label])=>{
+        const option=make("option","",label);option.value=value;select.append(option);
+      });
+      controls.append(search,select);explorer.append(controls);
+      const list=make("div","ingredient-list");
+      records.forEach(r=>{
+        const detail=make("details","ingredient-row");
+        detail.dataset.name=r.name;detail.dataset.state=r.state;
+        const summary=make("summary");
+        summary.append(make("span","",pretty(r.name)));
+        summary.append(make("span","ingredient-state "+r.state,r.state==="watch"?"Review":r.state==="unknown"?"Unknown":"Recognized"));
+        detail.append(summary);
+        if(!r.data){
+          detail.append(make("p","","No database match. This does not mean the ingredient is harmful. Check the official INCI spelling."));
+        }else{
+          const d=r.data;
+          const note="Category: "+(d.category||"ingredient")+". Known roles: "+(Array.isArray(d.benefits)&&d.benefits.length?d.benefits.join(", "):"not listed")+". Irritation metadata: "+(d.irritation_risk||"not listed")+". Comedogenic rating in database: "+(d.comedogenic_rating??"not listed")+"/5. This information cannot determine finished-product safety or individual tolerance.";
+          detail.append(make("p","",note));
+        }
+        list.append(detail);
+      });
+      explorer.append(list);
+      const empty=make("p","small","No ingredients match this filter.");
+      empty.hidden=true;explorer.append(empty);
+      const applyFilter=()=>{
+        let visible=0;const q=search.value.trim().toLowerCase();
+        list.querySelectorAll(".ingredient-row").forEach(row=>{
+          const show=row.dataset.name.includes(q)&&(select.value==="all"||row.dataset.state===select.value);
+          row.hidden=!show;if(show)visible++;
+        });
+        empty.hidden=visible!==0;
+      };
+      search.addEventListener("input",applyFilter);
+      select.addEventListener("change",applyFilter);
+      const intro=results.querySelector(".section-label");
+      if(intro)intro.after(report,actions,explorer);
+      else results.prepend(report,actions,explorer);
+    };
+
     loadIngredientDatabase();
 
   </script>
