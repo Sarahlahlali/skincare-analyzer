@@ -536,6 +536,147 @@
         padding: 34px 24px;
       }
     }
+
+
+    /* Refined editorial design */
+    :root { --cream:#f7f4ee;--cream-light:#fdfbf7;--pink:#f4c9cd;--blue:#d7e9ee;--green:#d8e7c8;--purple:#e7ddf4;--coral:#edab90;--black:#252927;--muted:#66706c;--shadow:0 16px 45px rgba(32,47,38,.08); }
+    html { scroll-behavior:smooth; }
+    body {background:#e8ede7;}
+    .site-frame {border:0;box-shadow:0 24px 70px rgba(30,43,32,.10);}
+    .announcement {background:#29483b;color:#fff;letter-spacing:2px;}
+    .top-nav {padding:30px 52px;}
+    .top-nav a,.sub-nav a {color:inherit;text-decoration:none;}
+    .top-nav a:hover,.sub-nav a:hover {text-decoration:underline;}
+    .brand {letter-spacing:-2px;}
+    .sub-nav {gap:44px;letter-spacing:1px;background:#f3f0e9;border-bottom:1px solid #e2ddd4;}
+    .hero {background:#f6f3eb;min-height:540px;}
+    .hero-copy h1 {font-size:clamp(44px,5vw,76px);line-height:1.04;letter-spacing:-3px;}
+    .hero-card {border-radius:18px;transform:rotate(-3deg);background:#dae5d4;}
+    .hero-card-inner {border-radius:10px;}
+    .mini-product {border-radius:35px 35px 12px 12px;}
+    .eyebrow {font:700 11px 'Space Mono',monospace;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px;color:#496154;}
+    .hero-note {font-size:12px!important;margin-top:14px;}
+    .pill-btn {background:#29483b;color:#fff;border:0;padding:17px 25px;letter-spacing:1px;transition:transform .2s,background .2s;}
+    .pill-btn:hover {transform:translateY(-2px);background:#3b6250;}
+    .analyzer-section {padding-top:85px;padding-bottom:85px;}
+    .info-panel {border-radius:22px;background:#dbe8d3;}
+    .analyzer-card {border-radius:22px;padding:40px;box-shadow:var(--shadow);}
+    .analyzer-card textarea,.analyzer-card select {border-radius:12px;background:#fcfbf8;}
+    .analyzer-card textarea {resize:vertical;min-height:180px;}
+    button {letter-spacing:1px;background:#29483b;color:#fff;transition:background .2s;}
+    button:hover {background:#3e6956;}
+    button:disabled {opacity:.45;cursor:not-allowed;}
+    .input-actions {display:flex;gap:10px;}
+    .input-actions .secondary-button {flex:1;margin-top:14px;background:#f2f4ee;border:1px solid #d7ded5;color:#29483b;padding:13px 10px;}
+    .input-actions .secondary-button:hover {background:#e0e9de;}
+    .input-status {font-size:12px!important;margin:14px 0 0;}
+    .how-section {padding:78px 80px;background:#f2f0e9;text-align:center;}
+    .how-section h2 {font:700 clamp(30px,4vw,46px) Georgia,serif;margin:0 0 34px;}
+    .how-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:18px;text-align:left;}
+    .how-grid article {padding:28px;border-radius:18px;background:#fff;border:1px solid #e3e3de;}
+    .how-grid article span {font:700 12px 'Space Mono',monospace;color:#577262;}
+    .how-grid h3 {font:700 23px Georgia,serif;margin:18px 0 10px;}
+    .how-grid p {font-size:14px;line-height:1.7;color:var(--muted);}
+    #result {padding-top:30px;}
+    .score-card,.result-section,.product-card {border-radius:18px;box-shadow:none;}
+    .score-card:nth-child(1){background:#e3eddd;}
+    .score-card:nth-child(2){background:#f8e8e1;}
+    .score-card:nth-child(3){background:#e5edf1;}
+    .score-number {font-size:39px;}
+    .tag {border-radius:13px;margin:5px 6px 5px 0;overflow-wrap:anywhere;}
+    .result-intro {font-size:15px;color:var(--muted);max-width:750px;line-height:1.7;margin:0 0 24px;}
+    .result-meta {font-size:12px;font-family:'Space Mono',monospace;letter-spacing:.2px;color:#506458;margin-bottom:14px;}
+    .footer {background:#dbe8d3;}
+    :focus-visible {outline:3px solid #8a6bc4;outline-offset:3px;}
+    @media (max-width:850px) {.how-section{padding:55px 24px}.how-grid{grid-template-columns:1fr}.top-nav{padding:24px}.hero-copy h1{letter-spacing:-1.5px}.analyzer-card{padding:25px}.sub-nav{gap:24px}.hero{min-height:unset}}
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pill-btn{transition:none}}
+
+
+.hero {background:radial-gradient(circle at 30% 40%,#e2eedb,transparent 42%),linear-gradient(130deg,#f9f8f2,#edf2e8);min-height:595px;}
+.hero-copy h1 em{color:#71947a;font-weight:400;}
+.hero-card{border-radius:25px;background:linear-gradient(145deg,#c9dfcb,#efd8de);padding:17px;width:100%;max-width:390px;}
+.hero-card-inner{background:#f7faf6;border-radius:16px;padding:22px;min-height:328px;display:block;}
+.formula-demo{width:100%;text-align:left;}
+.demo-head{font:700 11px 'Space Mono',monospace;color:#496451;display:flex;justify-content:space-between;}
+.demo-ring{width:182px;height:182px;border-radius:50%;border:18px solid #cae1cd;border-top-color:#6fa692;border-left-color:#82b99a;margin:16px auto;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 25px #bbcfbd75;}
+.demo-ring-center{text-align:center;display:flex;flex-direction:column;line-height:1.15;}
+.demo-ring-center span{font-size:27px;color:#a47b9b;}
+.demo-ring-center strong{font:700 28px Georgia,serif;}
+.demo-ring-center small{font:700 10px 'Space Mono',monospace;letter-spacing:2px;}
+.demo-labels{display:grid;gap:6px;}
+.demo-labels span{border:1px solid #dae9d9;background:#eaf3e9;border-radius:10px;padding:7px 11px;font:11px 'Space Mono',monospace;color:#425f4a;}
+#productName {width:100%;padding:16px;border:1px solid #cdd4cc;border-radius:12px;background:#fcfbf8;font:15px 'DM Sans',sans-serif;margin-top:9px;}
+#productName:focus-visible{outline:3px solid #a0bba9;}
+.formula-report{border-radius:24px;background:#29483b;color:white;padding:30px;margin-bottom:23px;overflow:hidden;}
+.formula-report h2{font:700 clamp(27px,4vw,43px) Georgia,serif;margin:9px 0;}
+.formula-report p{color:#e0ebe2;font-size:13px;line-height:1.7;}
+.formula-report .eyebrow{color:#b8d9c1;}
+.progress-track{height:12px;border-radius:99px;background:#4b6957;margin-top:23px;overflow:hidden;}
+.progress-fill{height:100%;background:linear-gradient(90deg,#b5dcae,#f2ddb7);border-radius:99px;}
+.report-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 24px;}
+.report-actions button{width:auto;margin:0;padding:13px 18px;font-size:11px;letter-spacing:.4px;}
+.report-actions span{font-size:12px;color:#4b6656;}
+.ingredient-explorer{background:#fff;border-radius:20px;border:1px solid #e0e8de;padding:28px;margin-bottom:24px;}
+.ingredient-explorer h3{font:700 29px Georgia,serif;margin:0 0 10px;}
+.explorer-controls{display:flex;gap:10px;margin:18px 0;}
+.explorer-controls input,.explorer-controls select{border:1px solid #ccd8ce;border-radius:11px;background:#fafcf9;padding:12px;font:14px 'DM Sans',sans-serif;}
+.explorer-controls input{flex:2;min-width:0;}
+.explorer-controls select{flex:1;min-width:0;}
+.ingredient-list{display:grid;gap:10px;}
+.ingredient-row{border:1px solid #e0e8e0;background:#fcfdfa;border-radius:13px;padding:15px;}
+.ingredient-row summary{cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;list-style:none;font-weight:700;}
+.ingredient-row summary::-webkit-details-marker{display:none;}
+.ingredient-row p{font-size:13px;line-height:1.65;color:#57685c;margin-bottom:0;}
+.ingredient-state{font:700 10px 'Space Mono',monospace;border-radius:99px;padding:6px 9px;white-space:nowrap;background:#e6f1e5;color:#42644b;}
+.ingredient-state.watch{background:#ffe8df;color:#944e3d;}
+.ingredient-state.unknown{background:#efede7;color:#6c6a61;}
+[hidden]{display:none!important;}
+@media(max-width:850px){.formula-report,.ingredient-explorer{padding:21px}.explorer-controls{flex-direction:column}.explorer-controls input,.explorer-controls select{width:100%}}
+
+
+.feature-zone{background:#f6f7f1;padding:70px 80px;scroll-margin-top:18px;}
+.compare-zone{background:#eaf0e7;}
+.feature-header{display:flex;gap:20px;justify-content:space-between;align-items:center;margin-bottom:30px;}
+.feature-header h2{font:700 clamp(30px,4vw,48px) Georgia,serif;line-height:1.08;letter-spacing:-1px;margin:0 0 14px;max-width:670px;}
+.feature-header p{color:var(--muted);max-width:660px;line-height:1.65;margin:0;}
+.feature-chip{font:700 10px 'Space Mono',monospace;letter-spacing:1px;white-space:nowrap;color:#365746;background:#dce9d8;border:1px solid #c7dcc7;border-radius:50px;padding:13px 16px;}
+.feature-card{background:#fff;border:1px solid #dbe5d8;border-radius:22px;padding:28px;box-shadow:0 8px 25px rgba(36,65,44,.035);}
+.feature-zone input[type="text"],.feature-zone textarea,.feature-zone select{width:100%;margin-top:8px;border:1px solid #c8d7cb;background:#fcfdfa;border-radius:12px;padding:15px;font:15px 'DM Sans',sans-serif;color:#28392c;}
+.feature-zone textarea{resize:vertical;min-height:145px;}
+.feature-zone label{font-size:12px;letter-spacing:.5px;color:#48614d;}
+.feature-zone fieldset{border:0;padding:0;margin:28px 0 0;}
+.concerns-field legend{font:700 20px Georgia,serif;}
+.concern-options{display:flex;flex-wrap:wrap;gap:9px;margin-top:15px;}
+.concern-options label{display:flex;align-items:center;gap:9px;background:#f3f8f1;border:1px solid #d5e6d2;border-radius:99px;padding:11px 15px;font:600 13px 'DM Sans',sans-serif;cursor:pointer;}
+.concern-options label:has(input:checked){background:#d5e8d5;border-color:#7fa68a;}
+.concern-options input{accent-color:#356849;width:16px;height:16px;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+.form-actions,.compare-controls{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:25px;}
+.form-actions button,.compare-controls button{width:auto;padding:15px 22px;margin:0;}
+.form-actions .secondary-button,.compare-controls .secondary-button,.example-compare{color:#32523c;background:#e9f2e6;border:1px solid #cddfcb;}
+.feature-zone .secondary-button:hover{background:#d8e9d7;}
+#profileStatus,#compareStatus{color:#47634d;font-size:12px;}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.compare-label{font:700 11px 'Space Mono',monospace;letter-spacing:2px;background:#e9eee6;border-radius:50px;padding:7px 12px;}
+.example-compare{width:auto;margin-top:12px;font-size:11px;}
+#compareResult{margin-top:28px;}
+.compare-overview{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0;}
+.compare-stat{border-radius:15px;padding:20px;background:#fff;border:1px solid #d8e6d8;}
+.compare-stat strong{display:block;font:700 32px Georgia,serif;margin:0 0 8px;}
+.compare-stat span{font:12px 'DM Sans',sans-serif;color:#5c6a60;}
+.compare-panel-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.compare-panel{background:#fff;border-radius:19px;padding:24px;border:1px solid #d8e6d8;min-width:0;}
+.compare-panel h3{font:700 25px Georgia,serif;margin:0 0 10px;overflow-wrap:anywhere;}
+.compare-panel ul{padding-left:19px;font:14px/1.8 'DM Sans',sans-serif;overflow-wrap:anywhere;}
+.compare-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.compare-tags span{font-size:12px;background:#edf4eb;border:1px solid #dbe9d8;border-radius:99px;padding:9px 12px;overflow-wrap:anywhere;}
+.compare-caveat{font-size:12px;line-height:1.7;color:#617365;}
+.goal-section{background:#f0f5ed;border:1px solid #dce6d9;border-radius:19px;padding:24px;margin-bottom:24px;}
+.goal-section h3{font:700 25px Georgia,serif;margin:0 0 10px;}
+.goal-chips{display:flex;gap:8px;flex-wrap:wrap;}
+.goal-chips span{background:white;border-radius:99px;border:1px solid #dbe3d8;padding:9px 12px;font-size:12px;}
+@media(max-width:850px){.feature-zone{padding:52px 24px}.feature-header{align-items:flex-start;flex-direction:column}.form-grid,.compare-grid,.compare-panel-grid{grid-template-columns:1fr}.compare-overview{grid-template-columns:1fr}.feature-card{padding:23px}.feature-chip{white-space:normal}}
+
   </style>
 </head>
 
@@ -543,20 +684,16 @@
 
   <div class="site-frame">
 
-    <div class="announcement">Free skin check vibes over 200 ingredients</div>
+    
 
     <header class="top-nav">
-      <div class="nav-left">Search ~~~~~</div>
+      <div class="nav-left"><a href="#analyzer">Ingredient Lab ↗</a></div>
       <div class="brand">skin magic*</div>
-      <div class="nav-right">Account &nbsp;&nbsp; Routine</div>
+      <div class="nav-right"><a href="#how-it-works">How it works</a></div>
     </header>
 
     <nav class="sub-nav">
-      <span>Analyze</span>
-      <span>Acne Score</span>
-      <span>Ingredients</span>
-      <span>Routine</span>
-      <span>Glow</span>
+      <a href="#skin-profile">Skin profile</a><a href="#analyzer">Analyze</a><a href="#compare">Compare formulas</a><a href="#how-it-works">How it works</a>
     </nav>
 
     <section class="hero">
@@ -566,32 +703,46 @@
 
       <div class="hero-card">
         <div class="hero-card-inner">
-          <div class="mini-product-stack">
-            <div class="mini-product"></div>
-            <div class="mini-product"></div>
-            <div class="mini-product"></div>
-            <div class="mini-product"></div>
-          </div>
+          <div class="formula-demo" aria-label="Formula analysis illustration"><div class="demo-head">✳ FORMULA INTELLIGENCE <span>↗</span></div><div class="demo-ring"><div class="demo-ring-center"><span>✦</span><strong>SKIN</strong><small>DECODED</small></div></div><div class="demo-labels"><span>✓ Ingredient insights</span><span>✓ Skin type aware</span><span>✓ Clear explanations</span></div></div>
         </div>
       </div>
 
       <div class="hero-copy">
-        <h1>making skincare feel magical.</h1>
+        <div class="eyebrow">✳ THE PERSONAL FORMULA LAB</div><h1>meet your skin’s new <em>superpower.</em></h1>
         <p>
-          Paste any skincare ingredient list and get a cute, clear breakdown of
-          pore-clogging risk, irritation flags, good ingredients, and routine suggestions.
+          Decode your skincare label in seconds. Understand what ingredients do, which deserve a closer look, and how they fit your skin type.
         </p>
-        <a href="#analyzer" class="pill-btn">Start Now</a>
+        <a href="#analyzer" class="pill-btn">Decode your ingredients ↗</a><p class="hero-note">No signup. No mystery claims. Just ingredient insights.</p>
       </div>
     </section>
 
-    <div class="section-label">New Analyzer</div>
+
+<section class="feature-zone" id="skin-profile" aria-labelledby="profileHeading">
+  <div class="feature-header"><div><div class="eyebrow">01 / PERSONALIZATION</div><h2 id="profileHeading">Your skin, your rules.</h2><p>Build a profile so your ingredient reports focus on what matters to you. Stored only in this browser.</p></div><span class="feature-chip">✳ PERSONAL SKIN PROFILE</span></div>
+  <div class="feature-card"><div class="form-grid">
+    <div><label for="profileSkinType">Skin type</label><select id="profileSkinType"><option value="normal">Normal</option><option value="dry">Dry</option><option value="oily">Oily / acne-prone</option><option value="sensitive">Sensitive</option></select></div>
+    <div><label for="profileName">Profile nickname (optional)</label><input id="profileName" type="text" maxlength="40" placeholder="e.g. My sensitive-skin era"></div>
+  </div>
+  <fieldset class="concerns-field"><legend>What are your skin goals?</legend><p class="small">Select as many as you like. These are preferences, not diagnoses.</p>
+    <div class="concern-options">
+      <label><input type="checkbox" name="skinConcern" value="hydration"> Hydration</label>
+      <label><input type="checkbox" name="skinConcern" value="barrier"> Skin barrier</label>
+      <label><input type="checkbox" name="skinConcern" value="acne"> Blemish-prone skin</label>
+      <label><input type="checkbox" name="skinConcern" value="tone"> Uneven tone</label>
+      <label><input type="checkbox" name="skinConcern" value="sensitivity"> Sensitivity</label>
+      <label><input type="checkbox" name="skinConcern" value="texture"> Texture</label>
+    </div>
+  </fieldset>
+  <div class="form-actions"><button type="button" id="saveProfile">Save my profile ↗</button><button type="button" id="clearProfile" class="secondary-button">Reset profile</button><span id="profileStatus" role="status" aria-live="polite"></span></div>
+  </div>
+</section>
+    <div class="section-label">THE INGREDIENT ANALYZER</div>
 
     <section class="analyzer-section" id="analyzer">
       <div class="analyzer-grid">
 
         <div class="info-panel">
-          <h2>your pocket skincare decoder.</h2>
+          <div class="eyebrow">01 / THE INGREDIENT EDIT</div><h2>your pocket skincare decoder.</h2>
           <p>
             Built for anyone who has ever stood in Sephora or Ulta wondering:
             “Is this actually good for my skin?”
@@ -603,10 +754,10 @@
         </div>
 
         <div class="analyzer-card">
-          <h2>Analyze Your Product</h2>
+          <div class="eyebrow">LET’S BREAK IT DOWN</div><h2>Analyze your product</h2>
           <p>Copy ingredients from a product page, brand website, Sephora, Ulta, or the product box.</p>
 
-          <label for="skinType">Your skin type</label>
+          <label for="productName">Product name (optional)</label><input id="productName" maxlength="80" type="text" placeholder="e.g. My everyday moisturizer" autocomplete="off"><label for="skinType">Your skin type</label>
           <select id="skinType">
             <option value="normal">Normal</option>
             <option value="oily">Oily / Acne-Prone</option>
@@ -621,7 +772,7 @@
             placeholder="Example: Water, Niacinamide, Glycerin, Fragrance, Salicylic Acid"
           ></textarea>
 
-          <button onclick="analyzeIngredients()">Analyze Ingredients</button>
+          <div class="input-actions"><button type="button" class="secondary-button" id="exampleBtn">Try an example</button><button type="button" class="secondary-button" id="clearBtn">Clear</button></div><p id="inputStatus" class="input-status" role="status" aria-live="polite">Loading ingredient database…</p><button type="button" id="analyzeBtn" onclick="analyzeIngredients()" disabled>Decode my formula ↗</button>
         </div>
 
       </div>
@@ -635,7 +786,17 @@
       <span>Sensitive Skin</span>
     </div>
 
-    <div id="result"></div>
+
+<section class="feature-zone compare-zone" id="compare" aria-labelledby="compareHeading">
+  <div class="feature-header"><div><div class="eyebrow">03 / FORMULA COMPARE</div><h2 id="compareHeading">Two formulas. One clearer choice.</h2><p>Compare ingredient overlap, unique ingredients, and skin-goal signals. No product safety rankings or winner claims.</p></div><span class="feature-chip">↗ SIDE BY SIDE</span></div>
+  <div class="compare-grid">
+    <div class="feature-card"><span class="compare-label">FORMULA A</span><label for="compareNameA">Name</label><input id="compareNameA" maxlength="80" placeholder="e.g. Hydrating serum"><label for="compareA">Ingredients</label><textarea id="compareA" rows="7" placeholder="Water, Glycerin, Panthenol, ..."></textarea><button type="button" class="secondary-button example-compare" id="compareSampleA">Use sample A</button></div>
+    <div class="feature-card"><span class="compare-label">FORMULA B</span><label for="compareNameB">Name</label><input id="compareNameB" maxlength="80" placeholder="e.g. Barrier cream"><label for="compareB">Ingredients</label><textarea id="compareB" rows="7" placeholder="Water, Glycerin, Ceramide NP, ..."></textarea><button type="button" class="secondary-button example-compare" id="compareSampleB">Use sample B</button></div>
+  </div>
+  <div class="compare-controls"><button id="compareButton" type="button">Compare these formulas ↗</button><button id="compareClear" type="button" class="secondary-button">Clear comparison</button><span id="compareStatus" role="status" aria-live="polite"></span></div>
+  <div id="compareResult" aria-live="polite"></div>
+</section>
+    <section class="how-section" id="how-it-works"><div class="eyebrow">THE PROCESS</div><h2>Skincare, without the guesswork.</h2><div class="how-grid"><article><span>01</span><h3>Paste the label</h3><p>Copy the full ingredient list, in order, from a product page or packaging.</p></article><article><span>02</span><h3>Explore the signals</h3><p>See ingredients recognized, helpful functions, and potential sensitivity flags.</p></article><article><span>03</span><h3>Make an informed choice</h3><p>Learn what a label can — and cannot — reveal about a formula.</p></article></div></section><div id="result" aria-live="polite"></div>
 
     <footer class="footer">
       <div>
@@ -747,226 +908,345 @@
       ]
     };
 
-    async function loadIngredientDatabase() {
-      try {
-        const response = await fetch("./database/ingredients.json");
-        const data = await response.json();
 
-        ingredientDatabase = data;
-        console.log("Ingredient database loaded:", ingredientDatabase);
-
-      } catch (error) {
-        console.error("Could not load ingredient database:", error);
+    let databaseLoaded=false;
+    const inputStatus=document.getElementById("inputStatus");
+    const analyzeBtn=document.getElementById("analyzeBtn");
+    const ingredientInput=document.getElementById("ingredients");
+    const results=document.getElementById("result");
+    const example="Water, Glycerin, Niacinamide, Panthenol, Sodium Hyaluronate, Cetearyl Alcohol, Fragrance, Phenoxyethanol";
+    document.getElementById("exampleBtn").addEventListener("click",()=>{
+      ingredientInput.value=example;document.getElementById("productName").value="Sample barrier serum";document.getElementById("skinType").value="sensitive";
+      results.innerHTML="";ingredientInput.focus();updateInputStatus();
+    });
+    document.getElementById("clearBtn").addEventListener("click",()=>{
+      ingredientInput.value="";document.getElementById("productName").value="";results.innerHTML="";ingredientInput.focus();updateInputStatus();
+    });
+    ingredientInput.addEventListener("input",updateInputStatus);
+    function updateInputStatus(){
+      const n=parseIngredients(ingredientInput.value).length;
+      if(!databaseLoaded){inputStatus.textContent="Ingredient database unavailable or still loading.";analyzeBtn.disabled=true;return;}
+      inputStatus.textContent=n?n+" ingredient"+(n===1?"":"s")+" entered · Ready to decode":"Database ready · Paste a list or try the example.";
+      analyzeBtn.disabled=!n;
+    }
+    async function loadIngredientDatabase(){
+      try{
+        const response=await fetch("./database/ingredients.json",{cache:"no-cache"});
+        if(!response.ok)throw Error("Database response "+response.status);
+        const data=await response.json();
+        if(!data||typeof data!=="object"||Array.isArray(data))throw Error("Invalid ingredient database");
+        ingredientDatabase=data;databaseLoaded=true;updateInputStatus();
+      }catch(error){
+        console.error("Ingredient database unavailable",error);
+        inputStatus.textContent="Couldn't load the database. Open the site through GitHub Pages (not file://), then refresh.";
+        analyzeBtn.disabled=true;
       }
     }
-
-    function cleanIngredientName(value) {
-      return value
-        .toLowerCase()
-        .trim()
-        .replace(/\(.*?\)/g, "")
-        .replace(/\s+/g, " ")
-        .replace(/[.;:]$/g, "")
-        .trim();
+    function normalizeIngredient(value){
+      return value.toLowerCase().trim().replace(/^[•\-\d.)\s]+/,"")
+        .replace(/\s*\([^)]*\)\s*/g," ").replace(/[.;:]$/g,"").replace(/\s+/g," ").trim();
     }
-
-    function analyzeIngredients() {
-      const inputBox = document.getElementById("ingredients");
-      const resultBox = document.getElementById("result");
-      const skinType = document.getElementById("skinType").value;
-
-      let text = inputBox.value.toLowerCase();
-
-      if (!text.trim()) {
-        resultBox.innerHTML = `
-          <div class="result-section">
-            <h3>No ingredients entered yet</h3>
-            <p class="small">Paste an ingredient list first, then click Analyze Ingredients.</p>
-          </div>
-        `;
-        return;
-      }
-
-      text = text.replace(/\(.*?\)/g, "");
-
-      let ingredients = text
-        .split(",")
-        .map(cleanIngredientName)
-        .filter(item => item.length > 0);
-
-      let good = [];
-      let warnings = [];
-      let unknown = [];
-
-      let acneScore = 0;
-      let irritationScore = 0;
-      let matchedCount = 0;
-
-      ingredients.forEach(ingredient => {
-        if (ingredientDatabase[ingredient]) {
-          matchedCount++;
-
-          let data = ingredientDatabase[ingredient];
-
-          let comedogenic = Number(data.comedogenic_rating || 0);
-          let irritation = data.irritation_risk || "none";
-          let benefits = data.benefits ? data.benefits.join(", ") : "generally skin-supportive";
-          let category = data.category || "ingredient";
-
-          acneScore += comedogenic;
-
-          if (irritation === "low") irritationScore += 1;
-          if (irritation === "medium") irritationScore += 2;
-          if (irritation === "high") irritationScore += 4;
-
-          const isWarning =
-            comedogenic >= 3 ||
-            irritation === "high" ||
-            (skinType === "sensitive" && irritation === "medium") ||
-            (skinType === "oily" && comedogenic >= 2);
-
-          if (isWarning) {
-            warnings.push(
-              `⚠ ${ingredient} — ${category}. Irritation risk: ${irritation}. Pore-clogging rating: ${comedogenic}/5.`
-            );
-          } else {
-            good.push(
-              `✔ ${ingredient} — ${benefits}`
-            );
-          }
-
-        } else {
-          unknown.push(`• ${ingredient}`);
-        }
+    function parseIngredients(value){
+      return [...new Set(value.replace(/^ingredients?\s*:/i,"")
+        .split(/[,;\n]+/).map(normalizeIngredient).filter(Boolean))].slice(0,250);
+    }
+    function escapeHTML(value){
+      return String(value).replace(/[&<>"']/g,character=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[character]));
+    }
+    function pretty(value){return value.replace(/\b\w/g,c=>c.toUpperCase());}
+    function analyzeIngredients(){
+      if(!databaseLoaded){inputStatus.textContent="Ingredient data isn't ready. Refresh the page.";return;}
+      const ingredients=parseIngredients(ingredientInput.value);
+      if(!ingredients.length){inputStatus.textContent="Add some ingredients to get started.";ingredientInput.focus();return;}
+      const skinType=document.getElementById("skinType").value;
+      const good=[],warnings=[],unknown=[];
+      let irritationFlags=0,comedogenicFlags=0;
+      ingredients.forEach(name=>{
+        const data=ingredientDatabase[name];
+        if(!data){unknown.push(name);return;}
+        const clog=Number(data.comedogenic_rating)||0;
+        const irritation=String(data.irritation_risk||"none").toLowerCase();
+        const watch=(irritation==="high"||(skinType==="sensitive"&&irritation==="medium")||(skinType==="oily"&&clog>=3));
+        if(irritation==="high"||(skinType==="sensitive"&&irritation==="medium"))irritationFlags++;
+        if(clog>=3)comedogenicFlags++;
+        const notes=(Array.isArray(data.benefits)?data.benefits:[]).join(", ");
+        const record={name,notes,clog,irritation,category:data.category||"ingredient"};
+        (watch?warnings:good).push(record);
       });
-
-      let acneLevel = getLevel(acneScore);
-      let irritationLevel = getLevel(irritationScore);
-      let productMatchLevel = getProductMatchLevel(warnings.length, unknown.length, matchedCount);
-
-      let products = productRecommendations[skinType];
-
-      let summaryMessage = getSummaryMessage(skinType);
-
-      let resultHTML = `
-        <div class="section-label">Your Results</div>
-
+      const matched=good.length+warnings.length;
+      const coverage=Math.round(matched/ingredients.length*100);
+      const status=coverage<50?"Limited data":warnings.length?"Review flags":"No major flags found";
+      const tag=(item,kind)=>{
+        const label=escapeHTML(pretty(item.name));
+        const note=kind==="warning"?" · "+escapeHTML(item.irritation==="high"?"higher irritation flag":item.irritation==="medium"?"sensitivity flag":"higher comedogenic rating"):(item.notes?" · "+escapeHTML(item.notes):"");
+        return '<div class="tag '+(kind==="warning"?"warning-tag":"good-tag")+'"><strong>'+label+'</strong>'+note+'</div>';
+      };
+      const recommendation=productRecommendations[skinType]||[];
+      results.innerHTML=`
+        <div class="section-label">Your Ingredient Edit</div>
+        <p class="result-intro">These are ingredient-level signals, not a diagnosis or a validated safety score. Concentration, complete formulation, exposure, and your own skin response all matter. Comedogenic ratings alone cannot predict whether a finished product will cause acne.</p>
         <div class="score-grid">
-          <div class="score-card">
-            <h3>Acne / Pore-Clogging Score</h3>
-            <div class="score-number ${acneLevel.className}">${acneScore}</div>
-            <p>${acneLevel.label}</p>
-            <p class="small">Higher scores usually mean more ingredients that may feel heavy or clog-prone for acne-prone skin.</p>
-          </div>
-
-          <div class="score-card">
-            <h3>Irritation Score</h3>
-            <div class="score-number ${irritationLevel.className}">${irritationScore}</div>
-            <p>${irritationLevel.label}</p>
-            <p class="small">Higher scores may matter more if your skin is sensitive, reactive, or barrier-damaged.</p>
-          </div>
-
-          <div class="score-card">
-            <h3>Skin Type Match</h3>
-            <div class="score-number ${productMatchLevel.className}">${productMatchLevel.label}</div>
-            <p class="small">${summaryMessage}</p>
-          </div>
+          <div class="score-card"><h3>Database coverage</h3><div class="score-number">${coverage}%</div><p>${matched} of ${ingredients.length} ingredients recognized</p><p class="small">Unrecognized ingredients are not necessarily unsafe.</p></div>
+          <div class="score-card"><h3>Review flags</h3><div class="score-number">${warnings.length}</div><p>${escapeHTML(status)}</p><p class="small">Flags are based on stored ingredient metadata and your selected skin type.</p></div>
+          <div class="score-card"><h3>Ingredient indicators</h3><div class="score-number">${irritationFlags} / ${comedogenicFlags}</div><p>Irritation / comedogenic flags</p><p class="small">Counts are not clinical risk scores or product-level predictions.</p></div>
         </div>
-
+        <div class="result-meta">SKIN TYPE: ${escapeHTML(pretty(skinType))} · ${ingredients.length} UNIQUE INGREDIENTS · ${coverage}% COVERAGE</div>
         <div class="results">
-      `;
-
-      if (good.length > 0) {
-        resultHTML += `
-          <div class="result-section">
-            <h3>Good Ingredients</h3>
-            ${good.map(item => `<div class="tag good-tag">${item}</div>`).join("")}
-          </div>
-        `;
-      }
-
-      if (warnings.length > 0) {
-        resultHTML += `
-          <div class="result-section">
-            <h3>Ingredients to Watch</h3>
-            <p class="small">These are not automatically bad, but they may be worth noticing depending on your skin type and product concentration.</p>
-            ${warnings.map(item => `<div class="tag warning-tag">${item}</div>`).join("")}
-          </div>
-        `;
-      }
-
-      if (unknown.length > 0) {
-        resultHTML += `
-          <div class="result-section">
-            <h3>Not Found in Database Yet</h3>
-            <p class="small">These ingredients are not bad automatically. They just are not in your database yet.</p>
-            ${unknown.map(item => `<div class="tag unknown-tag">${item}</div>`).join("")}
-          </div>
-        `;
-      }
-
-      resultHTML += `
-          <div class="result-section">
-            <h3>Recommended Product Types</h3>
-            <div class="product-grid">
-              ${products.map(product => `
-                <div class="product-card">
-                  <h4>${product.name}</h4>
-                  <p class="small">${product.reason}</p>
-                </div>
-              `).join("")}
-            </div>
-          </div>
-        </div>
-      `;
-
-      resultBox.innerHTML = resultHTML;
-      resultBox.scrollIntoView({ behavior: "smooth" });
+          <div class="result-section"><h3>Ingredients to explore</h3><p class="small">Recognized ingredients without a selected skin-type warning. This does not guarantee suitability.</p>${good.length?good.map(x=>tag(x,"good")).join(""):'<p class="small">No ingredients in this group yet.</p>'}</div>
+          <div class="result-section"><h3>Worth a closer look</h3><p class="small">Potential flags from the database, not definitive evidence of irritation or pore clogging.</p>${warnings.length?warnings.map(x=>tag(x,"warning")).join(""):'<p class="small">No major flags identified among recognized ingredients.</p>'}</div>
+          ${unknown.length?'<div class="result-section"><h3>Not yet in our database</h3><p class="small">These were not evaluated. Check names and try the INCI label spelling.</p>'+unknown.map(name=>'<div class="tag unknown-tag">'+escapeHTML(pretty(name))+'</div>').join("")+'</div>':""}
+          <div class="result-section"><h3>Routine inspiration</h3><p class="small">General skincare categories for your selected skin type — not recommendations based on the specific product formula.</p><div class="product-grid">${recommendation.map(p=>'<div class="product-card"><h4>'+escapeHTML(p.name)+'</h4><p class="small">'+escapeHTML(p.reason)+'</p></div>').join("")}</div></div>
+        </div>`;
+      results.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
     }
 
-    function getLevel(score) {
-      if (score <= 2) {
-        return { label: "Low risk", className: "low" };
-      } else if (score <= 6) {
-        return { label: "Medium risk", className: "medium" };
-      } else {
-        return { label: "High risk", className: "high" };
-      }
+    // Advanced dashboard layer: keeps the original ingredient analysis intact.
+    const basicAnalyze=analyzeIngredients;
+    analyzeIngredients=function(){
+      basicAnalyze();
+      if(!databaseLoaded)return;
+      const names=parseIngredients(ingredientInput.value);
+      if(!names.length)return;
+      const skinType=document.getElementById("skinType").value;
+      const productName=document.getElementById("productName").value.trim()||"Your formula";
+      const records=names.map(name=>{
+        const data=ingredientDatabase[name];
+        if(!data)return {name,state:"unknown",data:null};
+        const irritation=String(data.irritation_risk||"none").toLowerCase();
+        const clog=Number(data.comedogenic_rating)||0;
+        const watch=irritation==="high"||(skinType==="sensitive"&&irritation==="medium")||(skinType==="oily"&&clog>=3);
+        return {name,state:watch?"watch":"recognized",data};
+      });
+      const known=records.filter(r=>r.data).length;
+      const coverage=Math.round(100*known/records.length);
+      const flags=records.filter(r=>r.state==="watch").map(r=>r.name);
+      const make=(tag,className,textValue)=>{
+        const node=document.createElement(tag);
+        if(className)node.className=className;
+        if(textValue!==undefined)node.textContent=textValue;
+        return node;
+      };
+      const report=make("section","formula-report");
+      report.append(make("div","eyebrow","✳ YOUR PERSONAL FORMULA REPORT"));
+      report.append(make("h2","",productName));
+      report.append(make("p","",records.length+" unique ingredients · "+pretty(skinType)+" skin · "+known+" recognized · "+flags.length+" review flags"));
+      const track=make("div","progress-track");
+      track.setAttribute("role","progressbar");
+      track.setAttribute("aria-label","Database coverage");
+      track.setAttribute("aria-valuenow",String(coverage));
+      track.setAttribute("aria-valuemin","0");
+      track.setAttribute("aria-valuemax","100");
+      const fill=make("div","progress-fill");
+      fill.style.width=coverage+"%";
+      track.append(fill);report.append(track);
+      report.append(make("p","","Database coverage "+coverage+"% · Unknown ingredients are not automatically unsafe."));
+      const actions=make("div","report-actions");
+      const copy=make("button","","⧉ Copy analysis summary");copy.type="button";
+      const again=make("button","","↺ Analyze another");again.type="button";
+      const copyStatus=make("span","","");
+      actions.append(copy,again,copyStatus);
+      copy.addEventListener("click",async()=>{
+        const summary=[
+          productName+" — Ingredient Analysis",
+          "Skin type: "+skinType,
+          "Ingredient database coverage: "+known+"/"+records.length+" ("+coverage+"%)",
+          "Review flags: "+(flags.join(", ")||"None among recognized ingredients"),
+          "Not recognized: "+(records.filter(r=>!r.data).map(r=>r.name).join(", ")||"None"),
+          "Educational ingredient-level signals only; not medical advice or a validated product safety score."
+        ].join("\n");
+        try{await navigator.clipboard.writeText(summary);copyStatus.textContent="Copied ✓";}
+        catch(e){copyStatus.textContent="Copy unavailable in this browser.";}
+      });
+      again.addEventListener("click",()=>document.getElementById("analyzer").scrollIntoView({behavior:"smooth"}));
+      const explorer=make("section","ingredient-explorer");
+      explorer.append(make("h3","","Explore every ingredient"));
+      explorer.append(make("p","small","Search, filter, and open each ingredient to understand its role. Information comes from your ingredient database and does not predict individual skin reactions."));
+      const controls=make("div","explorer-controls");
+      const search=make("input");search.type="search";search.placeholder="Search ingredients…";search.setAttribute("aria-label","Search analyzed ingredients");
+      const select=make("select");select.setAttribute("aria-label","Filter analyzed ingredients");
+      [["all","All ingredients"],["recognized","Recognized"],["watch","Review flags"],["unknown","Not recognized"]].forEach(([value,label])=>{
+        const option=make("option","",label);option.value=value;select.append(option);
+      });
+      controls.append(search,select);explorer.append(controls);
+      const list=make("div","ingredient-list");
+      records.forEach(r=>{
+        const detail=make("details","ingredient-row");
+        detail.dataset.name=r.name;detail.dataset.state=r.state;
+        const summary=make("summary");
+        summary.append(make("span","",pretty(r.name)));
+        summary.append(make("span","ingredient-state "+r.state,r.state==="watch"?"Review":r.state==="unknown"?"Unknown":"Recognized"));
+        detail.append(summary);
+        if(!r.data){
+          detail.append(make("p","","No database match. This does not mean the ingredient is harmful. Check the official INCI spelling."));
+        }else{
+          const d=r.data;
+          const note="Category: "+(d.category||"ingredient")+". Known roles: "+(Array.isArray(d.benefits)&&d.benefits.length?d.benefits.join(", "):"not listed")+". Irritation metadata: "+(d.irritation_risk||"not listed")+". Comedogenic rating in database: "+(d.comedogenic_rating??"not listed")+"/5. This information cannot determine finished-product safety or individual tolerance.";
+          detail.append(make("p","",note));
+        }
+        list.append(detail);
+      });
+      explorer.append(list);
+      const empty=make("p","small","No ingredients match this filter.");
+      empty.hidden=true;explorer.append(empty);
+      const applyFilter=()=>{
+        let visible=0;const q=search.value.trim().toLowerCase();
+        list.querySelectorAll(".ingredient-row").forEach(row=>{
+          const show=row.dataset.name.includes(q)&&(select.value==="all"||row.dataset.state===select.value);
+          row.hidden=!show;if(show)visible++;
+        });
+        empty.hidden=visible!==0;
+      };
+      search.addEventListener("input",applyFilter);
+      select.addEventListener("change",applyFilter);
+      const intro=results.querySelector(".section-label");
+      if(intro)intro.after(report,actions,explorer);
+      else results.prepend(report,actions,explorer);
+    };
+
+
+    // Profile: browser-only persistence, no account or transmission.
+    const PROFILE_KEY="skinmagic-profile-v1";
+    const allowedGoals=["hydration","barrier","acne","tone","sensitivity","texture"];
+    const goalLabels={hydration:"Hydration",barrier:"Skin barrier",acne:"Blemish-prone skin",tone:"Uneven tone",sensitivity:"Sensitivity",texture:"Texture"};
+    const goalWords={
+      hydration:["hydration","moistur","humectant","plumping"],
+      barrier:["barrier","softening","emollient","repair"],
+      acne:["acne","oil control","exfoliat","pore"],
+      tone:["brightening","uneven tone","antioxidant"],
+      sensitivity:["calming","soothing","redness"],
+      texture:["smoothing","exfoliat","softening"]
+    };
+    let currentProfile={type:"normal",name:"",goals:[]};
+    function selectedGoals(){
+      return Array.from(document.querySelectorAll('input[name="skinConcern"]:checked')).map(node=>node.value).filter(v=>allowedGoals.includes(v));
     }
-
-    function getProductMatchLevel(warningsCount, unknownCount, matchedCount) {
-      if (matchedCount === 0) {
-        return { label: "Unknown", className: "medium" };
-      }
-
-      if (warningsCount === 0) {
-        return { label: "Strong", className: "low" };
-      }
-
-      if (warningsCount <= 2) {
-        return { label: "Okay", className: "medium" };
-      }
-
-      return { label: "Caution", className: "high" };
+    function setProfileFields(profile){
+      document.getElementById("profileSkinType").value=profile.type;
+      document.getElementById("profileName").value=profile.name||"";
+      document.querySelectorAll('input[name="skinConcern"]').forEach(el=>{el.checked=(profile.goals||[]).includes(el.value);});
     }
-
-    function getSummaryMessage(skinType) {
-      if (skinType === "oily") {
-        return "For oily or acne-prone skin, pay close attention to heavier oils, butters, and high pore-clogging ratings.";
-      }
-
-      if (skinType === "sensitive") {
-        return "For sensitive skin, watch fragrance, essential oils, strong exfoliants, retinoids, and drying alcohols.";
-      }
-
-      if (skinType === "dry") {
-        return "For dry skin, look for humectants, ceramides, emollients, and barrier-supporting ingredients.";
-      }
-
-      return "This product has been reviewed for common acne, irritation, and barrier-support signals.";
+    function syncSkinType(type){
+      document.getElementById("skinType").value=type;
     }
+    function readProfile(){
+      try{
+        const saved=JSON.parse(localStorage.getItem(PROFILE_KEY)||"null");
+        if(saved&&["normal","dry","oily","sensitive"].includes(saved.type)&&Array.isArray(saved.goals)){
+          currentProfile={type:saved.type,name:String(saved.name||"").slice(0,40),goals:saved.goals.filter(x=>allowedGoals.includes(x))};
+          setProfileFields(currentProfile);syncSkinType(currentProfile.type);
+          document.getElementById("profileStatus").textContent="Saved profile loaded.";
+        }
+      }catch(error){document.getElementById("profileStatus").textContent="Local storage unavailable; you can still use the profile for this session.";}
+    }
+    document.getElementById("saveProfile").addEventListener("click",()=>{
+      currentProfile={
+        type:document.getElementById("profileSkinType").value,
+        name:document.getElementById("profileName").value.trim().slice(0,40),
+        goals:selectedGoals()
+      };
+      syncSkinType(currentProfile.type);
+      try{localStorage.setItem(PROFILE_KEY,JSON.stringify(currentProfile));document.getElementById("profileStatus").textContent="✓ Profile saved to this browser.";}
+      catch(error){document.getElementById("profileStatus").textContent="✓ Profile active for this session. Browser storage is unavailable.";}
+    });
+    document.getElementById("clearProfile").addEventListener("click",()=>{
+      currentProfile={type:"normal",name:"",goals:[]};setProfileFields(currentProfile);syncSkinType("normal");
+      try{localStorage.removeItem(PROFILE_KEY);}catch(error){}
+      document.getElementById("profileStatus").textContent="Profile reset.";
+    });
+    document.getElementById("profileSkinType").addEventListener("change",e=>syncSkinType(e.target.value));
+    readProfile();
+    function goalInsights(names){
+      const matches=names.map(name=>({name,data:ingredientDatabase[name]})).filter(x=>x.data);
+      return currentProfile.goals.map(goal=>{
+        const terms=goalWords[goal]||[];
+        const supporting=matches.filter(x=>terms.some(term=>([x.data.category,...(Array.isArray(x.data.benefits)?x.data.benefits:[])].join(" ").toLowerCase()).includes(term))).map(x=>pretty(x.name));
+        return {goal:goalLabels[goal],names:supporting};
+      });
+    }
+    // Retain previous analysis and explorer, add a personalized explanation panel.
+    const existingAnalyzer=analyzeIngredients;
+    analyzeIngredients=function(){
+      existingAnalyzer();
+      if(!databaseLoaded||!parseIngredients(ingredientInput.value).length)return;
+      if(!currentProfile.goals.length)return;
+      const names=parseIngredients(ingredientInput.value);
+      const section=document.createElement("section");
+      section.className="goal-section";
+      const heading=document.createElement("h3");heading.textContent="Insights for your skin goals";section.append(heading);
+      const note=document.createElement("p");note.className="small";note.textContent="These are ingredient functions associated with your saved goals—not claims that the finished product will deliver results.";section.append(note);
+      goalInsights(names).forEach(item=>{
+        const p=document.createElement("p");p.className="small";
+        p.textContent=item.goal+": "+(item.names.length?item.names.join(", "):"No recognized ingredients with a matching database role.");
+        section.append(p);
+      });
+      const report=results.querySelector(".formula-report");
+      if(report)report.after(section);else results.prepend(section);
+    };
+    // Side-by-side analysis uses identical parsing and the same local ingredient database.
+    const compareIds=["compareA","compareB"];
+    document.getElementById("compareSampleA").addEventListener("click",()=>{
+      document.getElementById("compareNameA").value="Sample hydrating serum";
+      document.getElementById("compareA").value="Water, Glycerin, Niacinamide, Panthenol, Sodium Hyaluronate, Phenoxyethanol";
+    });
+    document.getElementById("compareSampleB").addEventListener("click",()=>{
+      document.getElementById("compareNameB").value="Sample barrier cream";
+      document.getElementById("compareB").value="Water, Glycerin, Ceramide NP, Squalane, Cetearyl Alcohol, Fragrance, Phenoxyethanol";
+    });
+    document.getElementById("compareClear").addEventListener("click",()=>{
+      ["compareA","compareB","compareNameA","compareNameB"].forEach(id=>document.getElementById(id).value="");
+      document.getElementById("compareResult").replaceChildren();
+      document.getElementById("compareStatus").textContent="Comparison cleared.";
+    });
+    function compareIngredientFlags(names,skinType){
+      return names.filter(name=>{
+        const d=ingredientDatabase[name];
+        if(!d)return false;
+        const irritation=String(d.irritation_risk||"none").toLowerCase();
+        const clog=Number(d.comedogenic_rating)||0;
+        return irritation==="high"||(skinType==="sensitive"&&irritation==="medium")||(skinType==="oily"&&clog>=3);
+      });
+    }
+    function htmlSafeNameList(names){
+      return names.length?names.map(name=>'<span>'+escapeHTML(pretty(name))+'</span>').join(""):'<p class="small">None in this group.</p>';
+    }
+    document.getElementById("compareButton").addEventListener("click",()=>{
+      const target=document.getElementById("compareResult");
+      const status=document.getElementById("compareStatus");
+      if(!databaseLoaded){status.textContent="Ingredient database not available. Refresh the page.";return;}
+      const a=parseIngredients(document.getElementById("compareA").value);
+      const b=parseIngredients(document.getElementById("compareB").value);
+      if(!a.length||!b.length){status.textContent="Please enter both ingredient lists first.";return;}
+      const titleA=document.getElementById("compareNameA").value.trim()||"Formula A";
+      const titleB=document.getElementById("compareNameB").value.trim()||"Formula B";
+      const type=document.getElementById("skinType").value;
+      const sa=new Set(a),sb=new Set(b);
+      const shared=a.filter(x=>sb.has(x)),onlyA=a.filter(x=>!sb.has(x)),onlyB=b.filter(x=>!sa.has(x));
+      const knownA=a.filter(x=>ingredientDatabase[x]).length,knownB=b.filter(x=>ingredientDatabase[x]).length;
+      const flagsA=compareIngredientFlags(a,type),flagsB=compareIngredientFlags(b,type);
+      const goals=currentProfile.goals;
+      const goalRows=(items)=>goals.map(goal=>{
+        const words=goalWords[goal]||[];
+        const matches=items.filter(name=>{
+          const d=ingredientDatabase[name];return d&&words.some(term=>[d.category,...(d.benefits||[])].join(" ").toLowerCase().includes(term));
+        });
+        return '<p class="small"><strong>'+escapeHTML(goalLabels[goal])+':</strong> '+escapeHTML(matches.length?matches.map(pretty).join(", "):"No matching database roles found")+'</p>';
+      }).join("");
+      target.innerHTML=
+        '<div class="section-label">COMPARISON REPORT</div>'+
+        '<div class="compare-overview"><div class="compare-stat"><strong>'+shared.length+'</strong><span>Shared ingredients</span></div>'+
+        '<div class="compare-stat"><strong>'+onlyA.length+'</strong><span>Unique to Formula A</span></div>'+
+        '<div class="compare-stat"><strong>'+onlyB.length+'</strong><span>Unique to Formula B</span></div></div>'+
+        '<div class="compare-panel"><h3>Found in both</h3><div class="compare-tags">'+htmlSafeNameList(shared)+'</div></div>'+
+        '<div class="compare-panel-grid" style="margin-top:18px">'+
+        '<div class="compare-panel"><h3>'+escapeHTML(titleA)+'</h3><p class="small">'+a.length+' total · '+knownA+' recognized · '+flagsA.length+' review flags</p><h4>Unique ingredients</h4><div class="compare-tags">'+htmlSafeNameList(onlyA)+'</div><h4>Potential review flags</h4><div class="compare-tags">'+htmlSafeNameList(flagsA)+'</div>'+(goals.length?'<h4>Your goals</h4>'+goalRows(a):'')+'</div>'+
+        '<div class="compare-panel"><h3>'+escapeHTML(titleB)+'</h3><p class="small">'+b.length+' total · '+knownB+' recognized · '+flagsB.length+' review flags</p><h4>Unique ingredients</h4><div class="compare-tags">'+htmlSafeNameList(onlyB)+'</div><h4>Potential review flags</h4><div class="compare-tags">'+htmlSafeNameList(flagsB)+'</div>'+(goals.length?'<h4>Your goals</h4>'+goalRows(b):'')+'</div></div>'+
+        '<p class="compare-caveat">Comparison is based only on entered ingredient names and stored metadata. An ingredient not found in the database is not evaluated. Differences do not establish which product is safer, more effective, or better for your skin. Ingredient concentrations and complete formulations are unknown.</p>';
+      status.textContent="Comparison ready.";
+      target.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
+    });
 
     loadIngredientDatabase();
+
   </script>
 
 </body>
