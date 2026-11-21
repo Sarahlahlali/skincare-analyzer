@@ -677,6 +677,28 @@
 .goal-chips span{background:white;border-radius:99px;border:1px solid #dbe3d8;padding:9px 12px;font-size:12px;}
 @media(max-width:850px){.feature-zone{padding:52px 24px}.feature-header{align-items:flex-start;flex-direction:column}.form-grid,.compare-grid,.compare-panel-grid{grid-template-columns:1fr}.compare-overview{grid-template-columns:1fr}.feature-card{padding:23px}.feature-chip{white-space:normal}}
 
+
+/* Navigation: shareable page URLs, all features still run in one document. */
+[data-page-view]{display:none!important;}
+body[data-page="home"] [data-page-view="home"],body[data-page="profile"] [data-page-view="profile"],body[data-page="analyze"] [data-page-view="analyze"],body[data-page="compare"] [data-page-view="compare"],body[data-page="guide"] [data-page-view="guide"]{display:block!important;}
+body[data-page="home"] .ticker{display:flex!important;}
+.sub-nav{position:sticky;top:0;z-index:30;flex-wrap:wrap;align-items:center;}
+.sub-nav a{padding:9px 11px;border-radius:99px;white-space:nowrap;transition:background .2s,color .2s;}
+.sub-nav a[aria-current="page"]{color:white;background:#29483b;text-decoration:none;}
+.brand a{text-decoration:none;color:inherit;}
+.page-hub{padding:65px 80px 85px;background:#f8f9f4;}
+.page-hub h2{font:700 clamp(33px,4vw,50px) Georgia,serif;margin:0 0 30px;letter-spacing:-1px;}
+.hub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px;}
+.hub-card{border:1px solid #dce6d9;border-radius:22px;background:#fff;display:flex;flex-direction:column;padding:28px;text-decoration:none;color:#29483b;min-height:285px;box-shadow:0 12px 28px rgba(42,73,49,.045);transition:transform .2s,box-shadow .2s;}
+.hub-card:hover{transform:translateY(-5px);box-shadow:0 18px 35px rgba(42,73,49,.11);}
+.hub-symbol{font-size:40px;margin-bottom:15px;}
+.hub-number{font:700 10px 'Space Mono',monospace;letter-spacing:1px;color:#6d8772;margin-bottom:15px;}
+.hub-card strong{font:700 26px Georgia,serif;margin-bottom:12px;}
+.hub-card p{font-size:14px;line-height:1.6;color:#69786c;margin:0 0 20px;}
+.hub-link{margin-top:auto;font:700 11px 'Space Mono',monospace;text-transform:uppercase;}
+body[data-page="profile"] #skin-profile,body[data-page="compare"] #compare,body[data-page="analyze"] #analyzer,body[data-page="guide"] #how-it-works{min-height:65vh;}
+@media(max-width:850px){.sub-nav{position:static;gap:4px;justify-content:center}.sub-nav a{font-size:11px;padding:7px}.page-hub{padding:45px 24px}.hub-grid{grid-template-columns:1fr}.hub-card{min-height:220px}}
+
   </style>
 </head>
 
@@ -687,16 +709,16 @@
     
 
     <header class="top-nav">
-      <div class="nav-left"><a href="#analyzer">Ingredient Lab ↗</a></div>
-      <div class="brand">skin magic*</div>
-      <div class="nav-right"><a href="#how-it-works">How it works</a></div>
+      <div class="nav-left"><a href="#analyze">Ingredient Lab ↗</a></div>
+      <div class="brand"><a href="#home" aria-label="Skin Magic home">skin magic*</a></div>
+      <div class="nav-right"><a href="#guide">How it works</a></div>
     </header>
 
     <nav class="sub-nav">
-      <a href="#skin-profile">Skin profile</a><a href="#analyzer">Analyze</a><a href="#compare">Compare formulas</a><a href="#how-it-works">How it works</a>
+      <a href="#home" data-nav="home">Home</a><a href="#profile" data-nav="profile">Skin profile</a><a href="#analyze" data-nav="analyze">Analyzer</a><a href="#compare" data-nav="compare">Compare formulas</a><a href="#guide" data-nav="guide">How it works</a>
     </nav>
 
-    <section class="hero">
+    <section class="hero" data-page-view="home">
       <div class="blob-left">s</div>
       <div class="blob-right">”</div>
       <div class="star-shape"></div>
@@ -712,12 +734,21 @@
         <p>
           Decode your skincare label in seconds. Understand what ingredients do, which deserve a closer look, and how they fit your skin type.
         </p>
-        <a href="#analyzer" class="pill-btn">Decode your ingredients ↗</a><p class="hero-note">No signup. No mystery claims. Just ingredient insights.</p>
+        <a href="#analyze" class="pill-btn">Decode your ingredients ↗</a><p class="hero-note">No signup. No mystery claims. Just ingredient insights.</p>
       </div>
     </section>
 
 
-<section class="feature-zone" id="skin-profile" aria-labelledby="profileHeading">
+
+<section class="page-hub" data-page-view="home" aria-labelledby="hubHeading">
+  <div class="eyebrow">CHOOSE YOUR NEXT STEP</div><h2 id="hubHeading">Your skincare toolkit.</h2>
+  <div class="hub-grid">
+    <a href="#profile" class="hub-card"><span class="hub-symbol">◌</span><span class="hub-number">01 / PERSONALIZE</span><strong>Create your skin profile</strong><p>Choose your skin type and goals for more relevant insights.</p><span class="hub-link">Explore profile ↗</span></a>
+    <a href="#analyze" class="hub-card"><span class="hub-symbol">✳</span><span class="hub-number">02 / DECODE</span><strong>Analyze ingredients</strong><p>Decode a formula and explore recognized ingredients.</p><span class="hub-link">Open analyzer ↗</span></a>
+    <a href="#compare" class="hub-card"><span class="hub-symbol">⇄</span><span class="hub-number">03 / COMPARE</span><strong>Compare two formulas</strong><p>Discover shared ingredients, differences, and database flags.</p><span class="hub-link">Start comparing ↗</span></a>
+  </div>
+</section>
+<section class="feature-zone" data-page-view="profile" id="skin-profile" aria-labelledby="profileHeading">
   <div class="feature-header"><div><div class="eyebrow">01 / PERSONALIZATION</div><h2 id="profileHeading">Your skin, your rules.</h2><p>Build a profile so your ingredient reports focus on what matters to you. Stored only in this browser.</p></div><span class="feature-chip">✳ PERSONAL SKIN PROFILE</span></div>
   <div class="feature-card"><div class="form-grid">
     <div><label for="profileSkinType">Skin type</label><select id="profileSkinType"><option value="normal">Normal</option><option value="dry">Dry</option><option value="oily">Oily / acne-prone</option><option value="sensitive">Sensitive</option></select></div>
@@ -736,9 +767,9 @@
   <div class="form-actions"><button type="button" id="saveProfile">Save my profile ↗</button><button type="button" id="clearProfile" class="secondary-button">Reset profile</button><span id="profileStatus" role="status" aria-live="polite"></span></div>
   </div>
 </section>
-    <div class="section-label">THE INGREDIENT ANALYZER</div>
+    <div class="section-label" data-page-view="analyze">THE INGREDIENT ANALYZER</div>
 
-    <section class="analyzer-section" id="analyzer">
+    <section class="analyzer-section" data-page-view="analyze" id="analyzer">
       <div class="analyzer-grid">
 
         <div class="info-panel">
@@ -778,7 +809,7 @@
       </div>
     </section>
 
-    <div class="ticker">
+    <div class="ticker" data-page-view="home">
       <span>Acne</span>
       <span>Barrier</span>
       <span>Glow</span>
@@ -787,7 +818,7 @@
     </div>
 
 
-<section class="feature-zone compare-zone" id="compare" aria-labelledby="compareHeading">
+<section class="feature-zone compare-zone" data-page-view="compare" id="compare" aria-labelledby="compareHeading">
   <div class="feature-header"><div><div class="eyebrow">03 / FORMULA COMPARE</div><h2 id="compareHeading">Two formulas. One clearer choice.</h2><p>Compare ingredient overlap, unique ingredients, and skin-goal signals. No product safety rankings or winner claims.</p></div><span class="feature-chip">↗ SIDE BY SIDE</span></div>
   <div class="compare-grid">
     <div class="feature-card"><span class="compare-label">FORMULA A</span><label for="compareNameA">Name</label><input id="compareNameA" maxlength="80" placeholder="e.g. Hydrating serum"><label for="compareA">Ingredients</label><textarea id="compareA" rows="7" placeholder="Water, Glycerin, Panthenol, ..."></textarea><button type="button" class="secondary-button example-compare" id="compareSampleA">Use sample A</button></div>
@@ -796,7 +827,7 @@
   <div class="compare-controls"><button id="compareButton" type="button">Compare these formulas ↗</button><button id="compareClear" type="button" class="secondary-button">Clear comparison</button><span id="compareStatus" role="status" aria-live="polite"></span></div>
   <div id="compareResult" aria-live="polite"></div>
 </section>
-    <section class="how-section" id="how-it-works"><div class="eyebrow">THE PROCESS</div><h2>Skincare, without the guesswork.</h2><div class="how-grid"><article><span>01</span><h3>Paste the label</h3><p>Copy the full ingredient list, in order, from a product page or packaging.</p></article><article><span>02</span><h3>Explore the signals</h3><p>See ingredients recognized, helpful functions, and potential sensitivity flags.</p></article><article><span>03</span><h3>Make an informed choice</h3><p>Learn what a label can — and cannot — reveal about a formula.</p></article></div></section><div id="result" aria-live="polite"></div>
+    <section class="how-section" data-page-view="guide" id="how-it-works"><div class="eyebrow">THE PROCESS</div><h2>Skincare, without the guesswork.</h2><div class="how-grid"><article><span>01</span><h3>Paste the label</h3><p>Copy the full ingredient list, in order, from a product page or packaging.</p></article><article><span>02</span><h3>Explore the signals</h3><p>See ingredients recognized, helpful functions, and potential sensitivity flags.</p></article><article><span>03</span><h3>Make an informed choice</h3><p>Learn what a label can — and cannot — reveal about a formula.</p></article></div></section><div id="result" data-page-view="analyze" aria-live="polite"></div>
 
     <footer class="footer">
       <div>
@@ -824,7 +855,7 @@
       <div>
         <h4>skin pals.</h4>
         <p>Join Now</p>
-        <a class="pill-btn" href="#analyzer">Analyze</a>
+        <a class="pill-btn" href="#analyze">Analyze</a>
       </div>
     </footer>
 
@@ -997,6 +1028,7 @@
           ${unknown.length?'<div class="result-section"><h3>Not yet in our database</h3><p class="small">These were not evaluated. Check names and try the INCI label spelling.</p>'+unknown.map(name=>'<div class="tag unknown-tag">'+escapeHTML(pretty(name))+'</div>').join("")+'</div>':""}
           <div class="result-section"><h3>Routine inspiration</h3><p class="small">General skincare categories for your selected skin type — not recommendations based on the specific product formula.</p><div class="product-grid">${recommendation.map(p=>'<div class="product-card"><h4>'+escapeHTML(p.name)+'</h4><p class="small">'+escapeHTML(p.reason)+'</p></div>').join("")}</div></div>
         </div>`;
+      if(location.hash!=="#analyze")location.hash="analyze";
       results.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
     }
 
@@ -1244,6 +1276,26 @@
       status.textContent="Comparison ready.";
       target.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
     });
+
+
+    const routes=new Set(["home","profile","analyze","compare","guide"]);
+    function currentPage(){
+      const hash=location.hash.replace(/^#/,"");
+      const aliases={"skin-profile":"profile",analyzer:"analyze",result:"analyze","how-it-works":"guide"};
+      return routes.has(hash)?hash:(aliases[hash]||"home");
+    }
+    function renderPage(){
+      const page=currentPage();document.body.dataset.page=page;
+      const titles={home:"Home",profile:"Skin Profile",analyze:"Ingredient Analyzer",compare:"Compare Formulas",guide:"How It Works"};
+      document.title=titles[page]+" | Skin Magic";
+      document.querySelectorAll("[data-nav]").forEach(link=>{
+        if(link.dataset.nav===page)link.setAttribute("aria-current","page");
+        else link.removeAttribute("aria-current");
+      });
+      if(location.hash!=="#result")window.scrollTo({top:0,behavior:"instant"});
+    }
+    window.addEventListener("hashchange",renderPage);
+    renderPage();
 
     loadIngredientDatabase();
 
